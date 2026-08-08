@@ -50,6 +50,7 @@ const CUSTOM_MODEL_VALUE = "__custom__";
 const state = {
   subject: null,
   marks: null,
+  mixed: false,
   question: null,
   exhausted: false,
   historyDetail: null,
@@ -82,8 +83,9 @@ function updateCrumbs(viewId) {
     const subj = SUBJECTS.find((s) => s.id === state.subject);
     parts.push(subj ? subj.name : state.subject);
   }
-  if (state.marks && (viewId === "view-question" || viewId === "view-result" || viewId === "view-loading")) {
-    parts.push(`${state.marks} mark${state.marks > 1 ? "s" : ""}`);
+  if (viewId === "view-question" || viewId === "view-result" || viewId === "view-loading") {
+    if (state.mixed) parts.push("Mixed practice");
+    else if (state.marks) parts.push(`${state.marks} mark${state.marks > 1 ? "s" : ""}`);
   }
   crumbs.textContent = parts.join("  ›  ");
 }
@@ -146,8 +148,16 @@ function renderMarkers() {
 
 function startMarker(marks) {
   state.marks = marks;
+  state.mixed = false;
   loadNewQuestion();
 }
+
+function startMixed() {
+  state.marks = null;
+  state.mixed = true;
+  loadNewQuestion();
+}
+document.getElementById("mixed-start-btn").addEventListener("click", startMixed);
 
 document.getElementById("q-back-btn").addEventListener("click", () => {
   renderMarkers();
@@ -163,13 +173,15 @@ document.getElementById("empty-back-btn").addEventListener("click", () => showVi
 // Question selection & rendering (no-repeat, backed by Store history)
 // ---------------------------------------------------------------------
 function loadNewQuestion() {
-  const pool = questionsFor(state.subject, state.marks);
+  const pool = state.mixed
+    ? (QUESTIONS[state.subject] || [])
+    : questionsFor(state.subject, state.marks);
   if (pool.length === 0) {
     document.getElementById("empty-message").textContent = "No questions available yet for this marker value.";
     showView("view-empty");
     return;
   }
-  const answered = new Set(Store.answeredIds(state.subject, state.marks));
+  const answered = new Set(Store.answeredIds(state.subject, state.mixed ? null : state.marks));
   let candidates = pool.filter((q) => !answered.has(q.id));
   let exhausted = false;
   if (candidates.length === 0) {
@@ -626,6 +638,7 @@ document.getElementById("retry-wrong-btn").addEventListener("click", () => {
   if (!q) return;
   state.subject = pick.subject;
   state.marks = pick.marks;
+  state.mixed = false;
   state.question = q;
   state.exhausted = false;
   renderQuestion();

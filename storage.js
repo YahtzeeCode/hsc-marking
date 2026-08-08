@@ -90,9 +90,11 @@ const Store = {
     }
   },
 
+  // Pass marks to scope to one marker value, or omit/null for every marker
+  // value combined (used by mixed practice mode).
   answeredIds(subject, marks) {
     return this.attempts
-      .filter((a) => a.subject === subject && a.marks === marks)
+      .filter((a) => a.subject === subject && (marks == null || a.marks === marks))
       .map((a) => a.questionId);
   },
 
