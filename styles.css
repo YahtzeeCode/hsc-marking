@@ -297,6 +297,74 @@ p.page-sub {
 .badge.live { background: var(--good-bg); color: var(--good); }
 .badge.soon { background: var(--border); color: var(--ink-soft); }
 
+.score-pick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.score-pick {
+  min-width: 46px;
+  height: 46px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+.score-pick:hover { border-color: var(--brand); }
+.score-pick.selected {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+
+.toggle-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 4px 0 16px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex: none;
+  margin-top: 2px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch .slider {
+  position: absolute;
+  inset: 0;
+  background: var(--border);
+  transition: background 0.15s;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  top: 3px;
+  background: var(--panel);
+  transition: transform 0.15s;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+}
+.switch input:checked + .slider { background: var(--brand); }
+.switch input:checked + .slider::before { transform: translateX(18px); }
+
 .back-link {
   display: inline-block;
   background: none;
@@ -589,6 +657,9 @@ textarea#answer-input:focus {
 .result-section ul { margin: 0; padding-left: 18px; }
 .result-section li { margin-bottom: 6px; line-height: 1.5; font-size: 0.92rem; }
 
+.result-section.criteria { border-left-color: var(--brand); }
+.result-section.criteria h4 { color: var(--brand); }
+.result-section.criteria li strong { color: var(--ink); }
 .result-section.strengths { border-left-color: var(--good); }
 .result-section.strengths h4 { color: var(--good); }
 .result-section.gaps { border-left-color: var(--bad); }
@@ -596,7 +667,7 @@ textarea#answer-input:focus {
 .result-section.tips { border-left-color: var(--warn); }
 .result-section.tips h4 { color: var(--warn); }
 
-details.sample-answer {
+.sample-answer {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -610,14 +681,17 @@ details.sample-answer summary {
   font-weight: 700;
   font-size: 0.88rem;
 }
-details.sample-answer .sample-body {
+div.sample-answer .modal-label {
+  padding-top: 14px;
+}
+.sample-answer .sample-body {
   padding-bottom: 16px;
   white-space: pre-wrap;
   line-height: 1.6;
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
-details.sample-answer .key-points {
+.sample-answer .key-points {
   margin-top: 10px;
   font-size: 0.82rem;
   color: var(--ink-soft);

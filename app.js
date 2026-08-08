@@ -46,6 +46,13 @@ const PROVIDERS = {
 };
 const PROVIDER_STORAGE_KEY = "hsc_provider";
 const CUSTOM_MODEL_VALUE = "__custom__";
+const SELFMARK_STORAGE_KEY = "hsc_selfmark";
+function isSelfMarkMode() {
+  return localStorage.getItem(SELFMARK_STORAGE_KEY) === "1";
+}
+function setSelfMarkMode(on) {
+  localStorage.setItem(SELFMARK_STORAGE_KEY, on ? "1" : "0");
+}
 
 const state = {
   subject: null,
@@ -85,11 +92,11 @@ function updateCrumbs(viewId) {
     parts.push(subj ? subj.name : state.subject);
   }
   const pastTopicSelect = viewId === "view-markers" || viewId === "view-question" ||
-    viewId === "view-result" || viewId === "view-loading";
+    viewId === "view-result" || viewId === "view-loading" || viewId === "view-selfmark";
   if (pastTopicSelect) {
     parts.push(state.topic || "All topics");
   }
-  if (viewId === "view-question" || viewId === "view-result" || viewId === "view-loading") {
+  if (viewId === "view-question" || viewId === "view-result" || viewId === "view-loading" || viewId === "view-selfmark") {
     if (state.mixed) parts.push("Mixed practice");
     else if (state.marks) parts.push(`${state.marks} mark${state.marks > 1 ? "s" : ""}`);
   }
@@ -398,10 +405,21 @@ document.getElementById("submit-btn").addEventListener("click", () => {
     setTimeout(() => (answerInput.style.borderColor = ""), 1200);
     return;
   }
+  if (isSelfMarkMode()) {
+    submitSelfMark(answer);
+    return;
+  }
   if (!getApiKey()) {
-    state.pendingAfterKeySave = () => submitForMarking(answer);
+    // Re-checked at resume time (not captured now) so that if the user turns on
+    // self-marking mode from inside this same prompt instead of entering a key,
+    // Save correctly self-marks the answer rather than still trying the AI call.
+    state.pendingAfterKeySave = () => {
+      if (isSelfMarkMode()) submitSelfMark(answer);
+      else submitForMarking(answer);
+    };
     openSettingsModal();
-    document.getElementById("apikey-error").textContent = `Enter your ${PROVIDERS[getProvider()].label} API key to start marking.`;
+    document.getElementById("apikey-error").textContent =
+      `Enter your ${PROVIDERS[getProvider()].label} API key to start marking, or turn on self-marking mode above.`;
     return;
   }
   submitForMarking(answer);
@@ -447,6 +465,72 @@ async function submitForMarking(answer) {
     }
   }
 }
+
+// ---------------------------------------------------------------------
+// Self-marking mode (no API key) — show the official criteria, key points
+// and sample answer, and let the student award their own mark band.
+// ---------------------------------------------------------------------
+function submitSelfMark(answer) {
+  const q = state.question;
+  document.getElementById("sm-marks-pill").textContent = `${q.marks} mark${q.marks > 1 ? "s" : ""}`;
+  document.getElementById("sm-topic-pill").textContent = q.topic || "Business Studies";
+  document.getElementById("sm-source-pill").textContent = q.source || "Original question";
+  document.getElementById("sm-question-text").textContent = q.question;
+  renderCriteriaList("sm-criteria-list", q.criteria);
+
+  const kpBlock = document.getElementById("sm-keypoints-block");
+  if (q.keyPoints) {
+    kpBlock.style.display = "block";
+    document.getElementById("sm-keypoints-text").textContent = q.keyPoints;
+  } else {
+    kpBlock.style.display = "none";
+  }
+  document.getElementById("sm-sample-answer-text").textContent = q.sampleAnswer;
+  document.getElementById("sm-your-answer-text").textContent = answer;
+
+  const row = document.getElementById("sm-score-row");
+  const hint = document.getElementById("sm-saved-hint");
+  row.innerHTML = "";
+  hint.textContent = "";
+  for (let m = 0; m <= q.marks; m++) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "score-pick";
+    btn.textContent = String(m);
+    btn.addEventListener("click", () => {
+      row.querySelectorAll(".score-pick").forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      hint.textContent = `Saved ${m}/${q.marks} to your history.`;
+      Store.addAttempt({
+        questionId: q.id,
+        subject: state.subject,
+        marks: q.marks,
+        topic: q.topic || null,
+        questionText: q.question,
+        source: q.source || null,
+        answer,
+        marksAwarded: m,
+        verdict: "Self-assessed",
+        strengths: [],
+        marksLost: [],
+        improvementTips: [],
+      }).catch((e) => console.warn("Could not save this attempt to history.", e));
+    });
+    row.appendChild(btn);
+  }
+
+  showView("view-selfmark");
+}
+
+document.getElementById("sm-redo-btn").addEventListener("click", () => {
+  renderQuestion();
+  showView("view-question");
+});
+document.getElementById("sm-next-btn").addEventListener("click", () => loadNewQuestion());
+document.getElementById("sm-change-marker-btn").addEventListener("click", () => {
+  renderMarkers();
+  showView("view-markers");
+});
 
 // ---------------------------------------------------------------------
 // Shared grading-prompt construction
@@ -673,12 +757,29 @@ function scoreColor(marksAwarded, maxMarks) {
   return pct >= 0.8 ? "var(--good)" : pct >= 0.5 ? "var(--warn)" : "var(--bad)";
 }
 
+// Renders the official mark-band descriptors (highest first, as stored) so
+// students can see exactly what was required at each level — not just the
+// AI's summary of their own answer.
+function renderCriteriaList(elId, criteria) {
+  const el = document.getElementById(elId);
+  el.innerHTML = "";
+  (criteria || []).forEach((c) => {
+    const li = document.createElement("li");
+    const strong = document.createElement("strong");
+    strong.textContent = `${c.marks} mark${c.marks === 1 ? "" : "s"}: `;
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(c.descriptor));
+    el.appendChild(li);
+  });
+}
+
 function renderResult(grade, answer) {
   const q = state.question;
   document.getElementById("score-circle").textContent = `${grade.marks_awarded}/${q.marks}`;
   document.getElementById("score-circle").style.background = scoreColor(grade.marks_awarded, q.marks);
   document.getElementById("verdict-text").textContent = grade.verdict || "";
   document.getElementById("result-source-caption").textContent = q.source ? `Source: ${q.source}` : "";
+  renderCriteriaList("criteria-list", q.criteria);
   fillList("strengths-list", grade.strengths);
   fillList("gaps-list", grade.marks_lost);
   fillList("tips-list", grade.improvement_tips);
@@ -799,6 +900,9 @@ function openHistoryDetail(a) {
   document.getElementById("hd-score-circle").textContent = `${a.marksAwarded}/${a.marks}`;
   document.getElementById("hd-score-circle").style.background = scoreColor(a.marksAwarded, a.marks);
   document.getElementById("hd-verdict-text").textContent = a.verdict || "";
+  const srcQuestion = (QUESTIONS[a.subject] || []).find((q) => q.id === a.questionId);
+  document.getElementById("hd-criteria-block").style.display = srcQuestion ? "block" : "none";
+  if (srcQuestion) renderCriteriaList("hd-criteria-list", srcQuestion.criteria);
   fillList("hd-strengths-list", a.strengths);
   fillList("hd-gaps-list", a.marksLost);
   fillList("hd-tips-list", a.improvementTips);
@@ -856,11 +960,18 @@ function openSettingsModal() {
   document.getElementById("apikey-error").textContent = "";
   populateModelSelect(provider);
   renderAccountSection();
+  document.getElementById("selfmark-toggle").checked = isSelfMarkMode();
+  document.getElementById("ai-settings-block").style.display = isSelfMarkMode() ? "none" : "block";
   settingsModal.classList.add("active");
 }
 function closeSettingsModal() {
   settingsModal.classList.remove("active");
 }
+
+document.getElementById("selfmark-toggle").addEventListener("change", (e) => {
+  setSelfMarkMode(e.target.checked);
+  document.getElementById("ai-settings-block").style.display = e.target.checked ? "none" : "block";
+});
 
 document.getElementById("provider-select").addEventListener("change", (e) => {
   const provider = e.target.value;
@@ -898,6 +1009,15 @@ document.getElementById("apikey-cancel-btn").addEventListener("click", () => {
   closeSettingsModal();
 });
 document.getElementById("apikey-save-btn").addEventListener("click", () => {
+  if (isSelfMarkMode()) {
+    closeSettingsModal();
+    if (state.pendingAfterKeySave) {
+      const cb = state.pendingAfterKeySave;
+      state.pendingAfterKeySave = null;
+      cb();
+    }
+    return;
+  }
   const provider = document.getElementById("provider-select").value;
   const val = document.getElementById("apikey-input").value.trim();
   if (!val) {
