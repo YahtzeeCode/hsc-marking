@@ -263,7 +263,9 @@ function buildSystemPrompt() {
 }
 
 function buildCriteriaText(q) {
-  return q.criteria.map((c) => `${c.marks} mark${c.marks > 1 ? "s" : ""}: ${c.descriptor}`).join("\n");
+  return q.criteria
+    .map((c) => `${c.marks} mark${c.marks === 1 ? "" : "s"}: ${c.descriptor}`)
+    .join("\n");
 }
 
 function buildUserContent(q, studentAnswer) {

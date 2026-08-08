@@ -5,8 +5,9 @@ marker value (1–6), answer the question, and get it marked instantly against t
 HSC marking criteria — with feedback on what you did well, why you lost marks, how to
 improve, and a full-mark sample answer.
 
-Currently live: **Business Studies** (28 questions across all 6 marker values, sourced
-from real CSSA Trial HSC papers plus a few written in the same NESA marking style).
+Currently live: **Business Studies** (115 questions across all 6 marker values, sourced
+from real CSSA / Penrith / Barker / Cherrybrook Tech / Knox Trial HSC papers, plus a
+handful written in the same NESA marking style to round out thin marker values).
 Economics and English Standard are stubbed in and ready to fill in later.
 
 ## Running it
@@ -57,11 +58,11 @@ Add new objects to the `"business-studies"` array (or create `"economics"` /
 
 ## Notes
 
-- The "papers" folder you shared (CSSA/Penrith/Cherrybrook/Knox/Barker trial papers)
-  was used as the source for the real questions in the bank. A handful of questions
-  (marked `source: "Original — NESA-style"`) were written to fill gaps — mainly at the
-  1-mark and 5-mark levels, where the papers had fewer usable full worked examples —
-  following the same marking-criteria style as the real ones.
+- The "papers" folder you shared (CSSA 2022/2024/2025, Penrith 2021, Barker 2022,
+  Cherrybrook Tech 2014/2015, Knox 2021/2022) was used as the source for the real
+  questions in the bank — each carries its `source` field so you can trace it back.
+  A handful of questions (marked `source: "Original — NESA-style"`) were written to
+  fill remaining gaps, following the same marking-criteria style as the real ones.
 - "Redo" re-marks the same question from scratch; "Next question" picks a new random
   question at the same marker value (it won't repeat a question until you've seen every
   question at that marker value once).
