@@ -544,8 +544,127 @@ const GRADE_FIELDS_SCHEMA = {
   improvement_tips: "array of strings — actionable tips for how the student could improve their answer",
 };
 
+// Official NESA HSC Business Studies syllabus content, by topic (Operations,
+// Marketing, Finance, Human Resources — the only four HSC-examinable topics;
+// Nature of Business and Business Management are Preliminary/Year 11 only
+// and are not tested at HSC level, so they're intentionally not included here).
+// Given to the marking AI as context so it knows exactly what content is
+// in/out of scope for a topic, not just the question and criteria in isolation.
+const SYLLABUS_CONTENT = {
+  "Operations": `1 - role of operations management
+- strategic role of operations management: cost leadership, good/service differentiation
+- goods and/or services in different industries
+- interdependence with other key business functions
+
+2 - influences
+- globalisation, technology, quality expectations, cost-based competition, government policies, legal regulation, environmental sustainability
+- corporate social responsibility: the difference between legal compliance and ethical responsibility; environmental sustainability and social responsibility
+
+3 - operations processes
+- inputs: transformed resources (materials, information, customers); transforming resources (human resources, facilities)
+- transformation processes: the influence of volume, variety, variation in demand and visibility (customer contact); sequencing and scheduling (Gantt charts, critical path analysis); technology, task design and process layout; monitoring, control and improvement
+- outputs: customer service; warranties
+
+4 - operations strategies
+- performance objectives: quality, speed, dependability, flexibility, customisation, cost
+- new product or service design and development
+- supply chain management: logistics, e-commerce, global sourcing
+- outsourcing: advantages and disadvantages
+- technology: leading edge, established
+- inventory management: advantages and disadvantages of holding stock, LIFO, FIFO, JIT
+- quality management: control, assurance, improvement
+- overcoming resistance to change: financial costs, purchasing new equipment, redundancy payments, retraining, reorganising plant layout, inertia
+- global factors: global sourcing, economies of scale, scanning and learning, research and development`,
+
+  "Marketing": `role of marketing
+- strategic role of marketing goods and services
+- interdependence with other key business functions
+- production, selling, marketing approaches
+- types of markets: resource, industrial, intermediate, consumer, mass, niche
+
+influences on marketing
+- factors influencing customer choice: psychological, sociocultural, economic, government
+- consumer laws: deceptive and misleading advertising; price discrimination; implied conditions; warranties
+- ethical: truth, accuracy and good taste in advertising; products that may damage health; engaging in fair competition; sugging
+
+marketing process
+- situational analysis: SWOT, product life cycle
+- market research
+- establishing market objectives
+- identifying target markets
+- developing marketing strategies
+- implementation, monitoring and controlling: developing a financial forecast; comparing actual and planned results; revising the marketing strategy
+
+marketing strategies
+- market segmentation, product/service differentiation and positioning
+- products (goods and/or services): branding; packaging
+- price including pricing methods (cost, market, competition-based): pricing strategies (skimming, penetration, loss leaders, price points); price and quality interaction
+- promotion: elements of the promotion mix (advertising, personal selling and relationship marketing, sales promotions, publicity and public relations); the communication process (opinion leaders, word of mouth)
+- place/distribution: distribution channels; channel choice (intensive, selective, exclusive); physical distribution issues (transport, warehousing, inventory)
+- people, processes and physical evidence
+- e-marketing
+- global marketing: global branding; standardisation; customisation; global pricing; competitive positioning`,
+
+  "Finance": `role of financial management
+- strategic role of financial management
+- objectives of financial management: profitability, growth, efficiency, liquidity, solvency; short-term and long-term
+- interdependence with other key business functions
+
+influences on financial management
+- internal sources of finance: retained profits
+- external sources of finance: debt (short-term borrowing e.g. overdraft, commercial bills, factoring; long-term borrowing e.g. mortgage, debentures, unsecured notes, leasing); equity (ordinary shares e.g. new issues, rights issues, placements, share purchase plans; private equity)
+- financial institutions: banks, investment banks, finance companies, superannuation funds, life insurance companies, unit trusts and the Australian Securities Exchange
+- influence of government: Australian Securities and Investments Commission, company taxation
+- global market influences: economic outlook, availability of funds, interest rates
+
+processes of financial management
+- planning and implementing: financial needs, budgets, record systems, financial risks, financial controls; debt and equity financing (advantages and disadvantages of each); matching the terms and source of finance to business purpose
+- monitoring and controlling: cash flow statement, income statement, balance sheet
+- financial ratios: liquidity (current ratio = current assets ÷ current liabilities); gearing (debt to equity ratio = total liabilities ÷ total equity); profitability (gross profit ratio = gross profit ÷ sales; net profit ratio = net profit ÷ sales; return on equity ratio = net profit ÷ total equity); efficiency (expense ratio = total expenses ÷ sales; accounts receivable turnover ratio = sales ÷ accounts receivable); comparative ratio analysis (over different time periods, against standards, with similar businesses)
+- limitations of financial reports: normalised earnings, capitalising expenses, valuing assets, timing issues, debt repayments, notes to the financial statements
+- ethical issues related to financial reports
+
+financial management strategies
+- cash flow management: cash flow statements; distribution of payments, discounts for early payment, factoring
+- working capital management: control of current assets (cash, receivables, inventories); control of current liabilities (payables, loans, overdrafts); strategies (leasing, sale and lease back)
+- profitability management: cost controls (fixed and variable, cost centres, expense minimisation); revenue controls (marketing objectives)
+- global financial management: exchange rates; interest rates; methods of international payment (payment in advance, letter of credit, clean payment, bill of exchange); hedging; derivatives`,
+
+  "Human Resources": `role of human resource management
+- strategic role of human resources
+- interdependence with other key business functions
+- outsourcing: human resource functions; using contractors (domestic, global)
+
+key influences
+- stakeholders: employers, employees, employer associations, unions, government organisations, society
+- legal: the current legal framework — the employment contract (common law rights and obligations of employers and employees, minimum employment standards, minimum wage rates, awards, enterprise agreements, other employment contracts); work health and safety and workers compensation; antidiscrimination and equal employment opportunity
+- economic
+- technological
+- social: changing work patterns, living standards
+- ethics and corporate social responsibility
+
+processes of human resource management
+- acquisition
+- development
+- maintenance
+- separation
+
+strategies in human resource management
+- leadership style
+- job design: general or specific tasks
+- recruitment: internal or external, general or specific skills
+- training and development: current or future skills
+- performance management: developmental or administrative
+- rewards: monetary and non-monetary, individual or group, performance pay
+- global: costs, skills, supply
+- workplace disputes: resolution (negotiation, mediation, grievance procedures, involvement of courts and tribunals)
+
+effectiveness of human resource management
+- indicators: corporate culture; benchmarking key variables; changes in staff turnover; absenteeism; accidents; levels of disputation; worker satisfaction`,
+};
+
 function buildSystemPrompt() {
-  return `You are an experienced, fair but rigorous HSC Business Studies marker working for the NSW Education Standards Authority (NESA). You mark strictly against the official marking criteria provided, using the key points and sample answer only as a guide to what a full-mark response looks like. Award the mark band that best matches what the student's answer actually demonstrates — do not give credit for content, terminology, or structure the answer does not contain, and do not be swayed by length or confident tone alone. Be specific and reference the student's own words when explaining strengths and gaps. Keep feedback constructive, concise and exam-focused. Always respond with valid JSON only, matching the requested schema exactly — no markdown, no commentary outside the JSON.`;
+  return `You are an experienced, fair but rigorous HSC Business Studies marker working for the NSW Education Standards Authority (NESA). You mark strictly against the official marking criteria provided, using the key points and sample answer only as a guide to what a full-mark response looks like. Award the mark band that best matches what the student's answer actually demonstrates — do not give credit for content, terminology, or structure the answer does not contain, and do not be swayed by length or confident tone alone. Be specific and reference the student's own words when explaining strengths and gaps. Keep feedback constructive, concise and exam-focused. You are also given the official NESA syllabus dot points for this question's topic — use them to judge whether the student's content is genuinely within the syllabus (e.g. don't penalise a correct answer for using different but syllabus-valid terminology, and don't award credit for content that's outside the syllabus for this topic even if it sounds plausible). Always respond with valid JSON only, matching the requested schema exactly — no markdown, no commentary outside the JSON.`;
 }
 
 function buildCriteriaText(q) {
@@ -555,8 +674,11 @@ function buildCriteriaText(q) {
 }
 
 function buildUserContent(q, studentAnswer) {
+  const syllabus = SYLLABUS_CONTENT[q.topic];
   return `Mark the following HSC Business Studies response.
 
+TOPIC: ${q.topic || "Business Studies"}
+${syllabus ? `\nNESA SYLLABUS CONTENT FOR THIS TOPIC (use this to judge what is/isn't in scope):\n${syllabus}\n` : ""}
 QUESTION (worth ${q.marks} mark${q.marks > 1 ? "s" : ""}):
 ${q.question}
 
