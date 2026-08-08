@@ -8,162 +8,192 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="brand" id="brand-home">
-    <div class="logo">📘</div>
-    <span>HSC Marking Practice</span>
-  </div>
-  <div style="display:flex; align-items:center; gap:10px;">
-    <div class="crumbs" id="crumbs"></div>
-    <button class="icon-btn" id="history-btn" title="Question history">🕘</button>
-    <button class="icon-btn" id="settings-btn" title="Settings">⚙️</button>
-  </div>
-</header>
+<div class="app-shell">
 
-<main>
-
-  <!-- HOME: subject selection -->
-  <section class="view active" id="view-home">
-    <h1 class="page-title">Pick a subject</h1>
-    <p class="page-sub">Choose a subject to start practising HSC exam-style questions, marked instantly against the official criteria.</p>
-    <div class="subject-grid" id="subject-grid"></div>
-  </section>
-
-  <!-- MARKER SELECT -->
-  <section class="view" id="view-markers">
-    <h1 class="page-title" id="marker-subject-title">Business Studies</h1>
-    <p class="page-sub">Pick how many marks the question is worth.</p>
-    <div class="marker-grid" id="marker-grid"></div>
-  </section>
-
-  <!-- QUESTION -->
-  <section class="view" id="view-question">
-    <div class="q-meta">
-      <span class="pill marks" id="q-marks-pill"></span>
-      <span class="pill topic" id="q-topic-pill"></span>
-      <span class="pill source" id="q-source-pill"></span>
-    </div>
-    <div class="repeat-banner" id="repeat-banner" style="display:none;">🔁 You've answered every question at this marker value — here's one to try again.</div>
-    <div class="stimulus-box" id="stimulus-box" style="display:none;">
-      <span class="stim-label">Stimulus</span>
-      <div id="stimulus-text"></div>
-    </div>
-    <p class="question-text" id="question-text"></p>
-    <textarea id="answer-input" placeholder="Type your answer here..."></textarea>
-    <div class="q-footer">
-      <span class="word-count" id="word-count">0 words</span>
-      <div class="btn-row" style="margin-top:0;">
-        <button class="btn btn-secondary" id="q-back-btn">← Back</button>
-        <button class="btn btn-primary" id="submit-btn">Submit for marking</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOADING -->
-  <section class="view" id="view-loading">
-    <div class="loading-box">
-      <div class="spinner"></div>
-      <p>Marking your answer against the criteria…</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="view" id="view-result">
-    <div class="score-banner">
-      <div class="score-circle" id="score-circle">0/0</div>
-      <div class="score-verdict">
-        <strong>Verdict:</strong> <span id="verdict-text"></span>
-        <div class="source-caption" id="result-source-caption"></div>
+  <aside class="sidebar">
+    <div class="brand-block" id="brand-home">
+      <div class="mark">HM</div>
+      <div>
+        <div class="name">HSC Marking</div>
+        <div class="tagline">Short-answer practice</div>
       </div>
     </div>
 
-    <div class="result-section strengths">
-      <h4>✅ What you did well</h4>
-      <ul id="strengths-list"></ul>
-    </div>
+    <nav class="side-nav">
+      <button class="side-nav-item active" id="nav-home" type="button">
+        <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7.5L8 2l6 5.5"/><path d="M3.5 6.5V14h9V6.5"/><path d="M6.5 14v-4h3v4"/></svg></span>
+        <span class="label">Home</span>
+      </button>
+      <button class="side-nav-item" id="nav-history" type="button">
+        <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8.5" r="5.5"/><path d="M8 5.5V8.5L10 10"/><path d="M6 1.5h4"/></svg></span>
+        <span class="label">History</span>
+      </button>
+    </nav>
 
-    <div class="result-section gaps">
-      <h4>⚠️ Why you lost marks</h4>
-      <ul id="gaps-list"></ul>
-    </div>
+    <div class="sidebar-spacer"></div>
 
-    <div class="result-section tips">
-      <h4>💡 How to improve</h4>
-      <ul id="tips-list"></ul>
+    <div class="sidebar-foot">
+      <nav class="side-nav">
+        <button class="side-nav-item" id="settings-btn" type="button">
+          <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.2"/><path d="M8 1.8v1.6M8 12.6v1.6M14.2 8h-1.6M3.4 8H1.8M12.3 3.7l-1.1 1.1M4.8 11.1l-1.1 1.1M12.3 12.3l-1.1-1.1M4.8 4.9L3.7 3.7"/></svg></span>
+          <span class="label">Settings</span>
+        </button>
+      </nav>
     </div>
+  </aside>
 
-    <details class="sample-answer">
-      <summary>📄 View sample full-mark answer</summary>
-      <div class="sample-body" id="sample-answer-text"></div>
-      <div class="key-points" id="key-points-text"></div>
-    </details>
+  <div class="content-col">
+    <header class="content-header">
+      <div class="crumbs" id="crumbs"></div>
+    </header>
 
-    <div class="your-answer-box">
-      <span class="label">Your answer</span>
-      <div id="your-answer-text"></div>
-    </div>
+    <main>
 
-    <div class="btn-row">
-      <button class="btn btn-secondary" id="redo-btn">↺ Redo this question</button>
-      <button class="btn btn-primary" id="next-btn">Next question →</button>
-      <button class="btn btn-secondary" id="change-marker-btn">Change marker value</button>
-    </div>
-  </section>
+      <!-- HOME: subject selection -->
+      <section class="view active" id="view-home">
+        <p class="eyebrow">Subjects</p>
+        <h1 class="page-title">Pick a subject</h1>
+        <p class="page-sub">Choose a subject to start practising HSC exam-style questions, marked instantly against the official criteria.</p>
+        <div class="subject-grid" id="subject-grid"></div>
+      </section>
 
-  <!-- HISTORY -->
-  <section class="view" id="view-history">
-    <h1 class="page-title">Your history</h1>
-    <p class="page-sub" id="history-sub">Every question you've answered, most recent first.</p>
-    <div class="history-stats" id="history-stats"></div>
-    <div id="history-list"></div>
-  </section>
+      <!-- MARKER SELECT -->
+      <section class="view" id="view-markers">
+        <p class="eyebrow">Marker value</p>
+        <h1 class="page-title" id="marker-subject-title">Business Studies</h1>
+        <p class="page-sub">Pick how many marks the question is worth.</p>
+        <div class="marker-grid" id="marker-grid"></div>
+      </section>
 
-  <!-- HISTORY DETAIL -->
-  <section class="view" id="view-history-detail">
-    <button class="btn btn-secondary" id="history-detail-back">← Back to history</button>
-    <div style="height:18px;"></div>
-    <div class="q-meta">
-      <span class="pill marks" id="hd-marks-pill"></span>
-      <span class="pill topic" id="hd-topic-pill"></span>
-      <span class="pill source" id="hd-source-pill"></span>
-      <span class="pill" id="hd-date-pill"></span>
-    </div>
-    <p class="question-text" id="hd-question-text"></p>
+      <!-- QUESTION -->
+      <section class="view" id="view-question">
+        <div class="q-meta">
+          <span class="pill marks" id="q-marks-pill"></span>
+          <span class="pill topic" id="q-topic-pill"></span>
+          <span class="pill source" id="q-source-pill"></span>
+        </div>
+        <div class="repeat-banner" id="repeat-banner" style="display:none;">You've answered every question at this marker value — here's one to try again.</div>
+        <div class="stimulus-box" id="stimulus-box" style="display:none;">
+          <span class="stim-label">Stimulus</span>
+          <div id="stimulus-text"></div>
+        </div>
+        <p class="question-text" id="question-text"></p>
+        <textarea id="answer-input" placeholder="Type your answer here..."></textarea>
+        <div class="q-footer">
+          <span class="word-count" id="word-count">0 words</span>
+          <div class="btn-row" style="margin-top:0;">
+            <button class="btn btn-secondary" id="q-back-btn">Back</button>
+            <button class="btn btn-primary" id="submit-btn">Submit for marking</button>
+          </div>
+        </div>
+      </section>
 
-    <div class="score-banner">
-      <div class="score-circle" id="hd-score-circle">0/0</div>
-      <div class="score-verdict"><strong>Verdict:</strong> <span id="hd-verdict-text"></span></div>
-    </div>
-    <div class="result-section strengths">
-      <h4>✅ What you did well</h4>
-      <ul id="hd-strengths-list"></ul>
-    </div>
-    <div class="result-section gaps">
-      <h4>⚠️ Why you lost marks</h4>
-      <ul id="hd-gaps-list"></ul>
-    </div>
-    <div class="result-section tips">
-      <h4>💡 How to improve</h4>
-      <ul id="hd-tips-list"></ul>
-    </div>
-    <div class="your-answer-box">
-      <span class="label">Your answer</span>
-      <div id="hd-your-answer-text"></div>
-    </div>
-  </section>
+      <!-- LOADING -->
+      <section class="view" id="view-loading">
+        <div class="loading-box">
+          <div class="spinner"></div>
+          <p>Marking your answer against the criteria…</p>
+        </div>
+      </section>
 
-  <!-- EMPTY / ERROR -->
-  <section class="view" id="view-empty">
-    <div class="empty-state">
-      <span class="emoji">🚧</span>
-      <p id="empty-message">No questions available yet for this selection.</p>
-      <button class="btn btn-secondary" id="empty-back-btn">← Go back</button>
-    </div>
-  </section>
+      <!-- RESULTS -->
+      <section class="view" id="view-result">
+        <div class="score-banner">
+          <div class="score-circle" id="score-circle">0/0</div>
+          <div class="score-verdict">
+            <strong>Verdict:</strong> <span id="verdict-text"></span>
+            <div class="source-caption" id="result-source-caption"></div>
+          </div>
+        </div>
 
-</main>
+        <div class="result-section strengths">
+          <h4>What you did well</h4>
+          <ul id="strengths-list"></ul>
+        </div>
 
-<footer class="app-footer">Business Studies question bank sourced from CSSA / Penrith / Barker / Cherrybrook / Knox Trial HSC papers • Marking powered by your choice of AI model</footer>
+        <div class="result-section gaps">
+          <h4>Why you lost marks</h4>
+          <ul id="gaps-list"></ul>
+        </div>
+
+        <div class="result-section tips">
+          <h4>How to improve</h4>
+          <ul id="tips-list"></ul>
+        </div>
+
+        <details class="sample-answer">
+          <summary>View sample full-mark answer</summary>
+          <div class="sample-body" id="sample-answer-text"></div>
+          <div class="key-points" id="key-points-text"></div>
+        </details>
+
+        <div class="your-answer-box">
+          <span class="label">Your answer</span>
+          <div id="your-answer-text"></div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="redo-btn">Redo this question</button>
+          <button class="btn btn-primary" id="next-btn">Next question</button>
+          <button class="btn btn-secondary" id="change-marker-btn">Change marker value</button>
+        </div>
+      </section>
+
+      <!-- HISTORY -->
+      <section class="view" id="view-history">
+        <p class="eyebrow">Progress</p>
+        <h1 class="page-title">Your history</h1>
+        <p class="page-sub" id="history-sub">Every question you've answered, most recent first.</p>
+        <div class="history-stats" id="history-stats"></div>
+        <div id="history-list"></div>
+      </section>
+
+      <!-- HISTORY DETAIL -->
+      <section class="view" id="view-history-detail">
+        <button class="btn btn-secondary" id="history-detail-back">Back to history</button>
+        <div style="height:18px;"></div>
+        <div class="q-meta">
+          <span class="pill marks" id="hd-marks-pill"></span>
+          <span class="pill topic" id="hd-topic-pill"></span>
+          <span class="pill source" id="hd-source-pill"></span>
+          <span class="pill" id="hd-date-pill"></span>
+        </div>
+        <p class="question-text" id="hd-question-text"></p>
+
+        <div class="score-banner">
+          <div class="score-circle" id="hd-score-circle">0/0</div>
+          <div class="score-verdict"><strong>Verdict:</strong> <span id="hd-verdict-text"></span></div>
+        </div>
+        <div class="result-section strengths">
+          <h4>What you did well</h4>
+          <ul id="hd-strengths-list"></ul>
+        </div>
+        <div class="result-section gaps">
+          <h4>Why you lost marks</h4>
+          <ul id="hd-gaps-list"></ul>
+        </div>
+        <div class="result-section tips">
+          <h4>How to improve</h4>
+          <ul id="hd-tips-list"></ul>
+        </div>
+        <div class="your-answer-box">
+          <span class="label">Your answer</span>
+          <div id="hd-your-answer-text"></div>
+        </div>
+      </section>
+
+      <!-- EMPTY / ERROR -->
+      <section class="view" id="view-empty">
+        <div class="empty-state">
+          <p class="eyebrow">Nothing here yet</p>
+          <p id="empty-message">No questions available yet for this selection.</p>
+          <button class="btn btn-secondary" id="empty-back-btn">Go back</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
 
 <!-- SETTINGS MODAL -->
 <div class="modal-backdrop" id="settings-modal">
@@ -205,8 +235,8 @@
     <p class="modal-label">Manual backup</p>
     <p class="modal-hint">Works with or without cloud sync — download your history from one device, import it on another.</p>
     <div class="btn-row" style="margin-top:8px;">
-      <button class="btn btn-secondary" id="export-history-btn">⬇ Export history</button>
-      <button class="btn btn-secondary" id="import-history-btn">⬆ Import history</button>
+      <button class="btn btn-secondary" id="export-history-btn">Export history</button>
+      <button class="btn btn-secondary" id="import-history-btn">Import history</button>
       <input type="file" id="import-history-file" accept="application/json" style="display:none;">
     </div>
 

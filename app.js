@@ -4,9 +4,9 @@
 // which is local-only unless firebase-config.js has a real config in it.
 
 const SUBJECTS = [
-  { id: "business-studies", name: "Business Studies", emoji: "💼", desc: "Operations, marketing, finance, HR & the business environment", enabled: true },
-  { id: "economics", name: "Economics", emoji: "📈", desc: "Coming soon", enabled: false },
-  { id: "english-standard", name: "English Standard", emoji: "📖", desc: "Coming soon", enabled: false },
+  { id: "business-studies", name: "Business Studies", mono: "BS", desc: "Operations, marketing, finance, HR & the business environment", enabled: true },
+  { id: "economics", name: "Economics", mono: "EC", desc: "Coming soon", enabled: false },
+  { id: "english-standard", name: "English Standard", mono: "EN", desc: "Coming soon", enabled: false },
 ];
 
 const PROVIDERS = {
@@ -68,11 +68,16 @@ function showView(id) {
 
 function updateCrumbs(viewId) {
   const crumbs = document.getElementById("crumbs");
-  const parts = [];
-  if (viewId === "view-history" || viewId === "view-history-detail") {
+  const historyViews = viewId === "view-history" || viewId === "view-history-detail";
+
+  document.getElementById("nav-home").classList.toggle("active", !historyViews);
+  document.getElementById("nav-history").classList.toggle("active", historyViews);
+
+  if (historyViews) {
     crumbs.textContent = "History";
     return;
   }
+  const parts = [];
   if (state.subject) {
     const subj = SUBJECTS.find((s) => s.id === state.subject);
     parts.push(subj ? subj.name : state.subject);
@@ -84,6 +89,7 @@ function updateCrumbs(viewId) {
 }
 
 document.getElementById("brand-home").addEventListener("click", () => showView("view-home"));
+document.getElementById("nav-home").addEventListener("click", () => showView("view-home"));
 
 // ---------------------------------------------------------------------
 // Home: subject cards
@@ -95,7 +101,7 @@ function renderSubjects() {
     const card = document.createElement("div");
     card.className = "subject-card" + (s.enabled ? "" : " disabled");
     card.innerHTML = `
-      <span class="emoji">${s.emoji}</span>
+      <div class="mono">${s.mono}</div>
       <h3>${s.name}</h3>
       <p>${s.desc}</p>
       <span class="badge ${s.enabled ? "live" : "soon"}">${s.enabled ? "Available" : "Coming soon"}</span>
@@ -126,15 +132,15 @@ function renderMarkers() {
   grid.innerHTML = "";
   for (let m = 1; m <= 6; m++) {
     const count = questionsFor(state.subject, m).length;
-    const card = document.createElement("div");
-    card.className = "marker-card" + (count === 0 ? " empty" : "");
-    card.innerHTML = `
-      <div class="num">${m}</div>
-      <div class="label">Marker${m > 1 ? "s" : ""}</div>
-      <div class="count">${count} question${count === 1 ? "" : "s"}</div>
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className = "marker-pill" + (count === 0 ? " empty" : "");
+    pill.innerHTML = `
+      <span>${m} mark${m > 1 ? "s" : ""}</span>
+      <span class="count">${count}</span>
     `;
-    if (count > 0) card.addEventListener("click", () => startMarker(m));
-    grid.appendChild(card);
+    if (count > 0) pill.addEventListener("click", () => startMarker(m));
+    grid.appendChild(pill);
   }
 }
 
@@ -516,7 +522,7 @@ document.getElementById("next-btn").addEventListener("click", () => loadNewQuest
 // ---------------------------------------------------------------------
 // History view
 // ---------------------------------------------------------------------
-document.getElementById("history-btn").addEventListener("click", () => {
+document.getElementById("nav-history").addEventListener("click", () => {
   renderHistory();
   showView("view-history");
 });
@@ -531,11 +537,11 @@ function renderHistory() {
   subEl.textContent = Store.isSignedIn()
     ? "Every question you've answered, synced across your devices — most recent first."
     : "Every question you've answered on this device, most recent first." +
-      (Store.cloudEnabled ? " Sign in (⚙️) to sync across devices." : "");
+      (Store.cloudEnabled ? " Sign in via Settings to sync across devices." : "");
 
   if (attempts.length === 0) {
     statsEl.innerHTML = "";
-    listEl.innerHTML = `<div class="empty-state"><span class="emoji">🗒️</span><p>You haven't answered any questions yet.</p></div>`;
+    listEl.innerHTML = `<div class="empty-state"><p class="eyebrow">Nothing here yet</p><p>You haven't answered any questions yet.</p></div>`;
     return;
   }
 
