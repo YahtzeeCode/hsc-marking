@@ -183,6 +183,7 @@ function renderQuestion() {
   const q = state.question;
   document.getElementById("q-marks-pill").textContent = `${q.marks} mark${q.marks > 1 ? "s" : ""}`;
   document.getElementById("q-topic-pill").textContent = q.topic || "Business Studies";
+  document.getElementById("q-source-pill").textContent = q.source || "Original question";
   document.getElementById("repeat-banner").style.display = state.exhausted ? "block" : "none";
   const stimBox = document.getElementById("stimulus-box");
   if (q.stimulus) {
@@ -497,6 +498,7 @@ function renderResult(grade, answer) {
   document.getElementById("score-circle").textContent = `${grade.marks_awarded}/${q.marks}`;
   document.getElementById("score-circle").style.background = scoreColor(grade.marks_awarded, q.marks);
   document.getElementById("verdict-text").textContent = grade.verdict || "";
+  document.getElementById("result-source-caption").textContent = q.source ? `Source: ${q.source}` : "";
   fillList("strengths-list", grade.strengths);
   fillList("gaps-list", grade.marks_lost);
   fillList("tips-list", grade.improvement_tips);
@@ -570,6 +572,7 @@ function renderHistory() {
 function openHistoryDetail(a) {
   document.getElementById("hd-marks-pill").textContent = `${a.marksAwarded}/${a.marks}`;
   document.getElementById("hd-topic-pill").textContent = a.topic || "Business Studies";
+  document.getElementById("hd-source-pill").textContent = a.source || "Original question";
   document.getElementById("hd-date-pill").textContent = new Date(a.timestamp).toLocaleString();
   document.getElementById("hd-question-text").textContent = a.questionText;
   document.getElementById("hd-score-circle").textContent = `${a.marksAwarded}/${a.marks}`;

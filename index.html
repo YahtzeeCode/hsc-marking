@@ -41,6 +41,7 @@
     <div class="q-meta">
       <span class="pill marks" id="q-marks-pill"></span>
       <span class="pill topic" id="q-topic-pill"></span>
+      <span class="pill source" id="q-source-pill"></span>
     </div>
     <div class="repeat-banner" id="repeat-banner" style="display:none;">🔁 You've answered every question at this marker value — here's one to try again.</div>
     <div class="stimulus-box" id="stimulus-box" style="display:none;">
@@ -70,7 +71,10 @@
   <section class="view" id="view-result">
     <div class="score-banner">
       <div class="score-circle" id="score-circle">0/0</div>
-      <div class="score-verdict"><strong>Verdict:</strong> <span id="verdict-text"></span></div>
+      <div class="score-verdict">
+        <strong>Verdict:</strong> <span id="verdict-text"></span>
+        <div class="source-caption" id="result-source-caption"></div>
+      </div>
     </div>
 
     <div class="result-section strengths">
@@ -121,6 +125,7 @@
     <div class="q-meta">
       <span class="pill marks" id="hd-marks-pill"></span>
       <span class="pill topic" id="hd-topic-pill"></span>
+      <span class="pill source" id="hd-source-pill"></span>
       <span class="pill" id="hd-date-pill"></span>
     </div>
     <p class="question-text" id="hd-question-text"></p>

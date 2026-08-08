@@ -214,6 +214,17 @@ p.page-sub {
 }
 .pill.marks { background: var(--ink); color: var(--bg); }
 .pill.topic { background: var(--border); color: var(--ink-soft); }
+.pill.source {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px dashed var(--border);
+  font-weight: 500;
+}
+.source-caption {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
 
 .stimulus-box {
   background: var(--brand-soft);
