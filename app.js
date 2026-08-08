@@ -753,6 +753,36 @@ document.getElementById("import-history-file").addEventListener("change", async 
 });
 
 // ---------------------------------------------------------------------
+// Theme (light/dark) — manual override on top of the OS default
+// ---------------------------------------------------------------------
+const THEME_STORAGE_KEY = "hsc_theme";
+
+function effectiveTheme() {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "light" || stored === "dark") return stored;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function updateThemeToggleLabel() {
+  document.getElementById("theme-toggle-label").textContent =
+    effectiveTheme() === "dark" ? "Dark mode" : "Light mode";
+}
+function applyStoredTheme() {
+  const stored = localStorage.getItem(THEME_STORAGE_KEY);
+  if (stored === "light" || stored === "dark") {
+    document.documentElement.setAttribute("data-theme", stored);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+  updateThemeToggleLabel();
+}
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const next = effectiveTheme() === "dark" ? "light" : "dark";
+  localStorage.setItem(THEME_STORAGE_KEY, next);
+  applyStoredTheme();
+});
+applyStoredTheme();
+
+// ---------------------------------------------------------------------
 // Init
 // ---------------------------------------------------------------------
 Store.init();
