@@ -477,6 +477,7 @@ function submitSelfMark(answer) {
   document.getElementById("sm-source-pill").textContent = q.source || "Original question";
   document.getElementById("sm-question-text").textContent = q.question;
   renderCriteriaList("sm-criteria-list", q.criteria);
+  setCriteriaSourceBadge("sm-criteria-source", q.criteriaSource);
 
   const kpBlock = document.getElementById("sm-keypoints-block");
   if (q.keyPoints) {
@@ -757,6 +758,26 @@ function scoreColor(marksAwarded, maxMarks) {
   return pct >= 0.8 ? "var(--good)" : pct >= 0.5 ? "var(--warn)" : "var(--bad)";
 }
 
+// "official" = copied/paraphrased from a real per-mark-value table in the
+// source paper. "derived" = the source paper didn't give one (a combined
+// range like "3-4 marks", a per-component rule, a missing band, or in a
+// couple of cases a mismatched/reused guideline in the paper itself), so
+// the specific band wording was written or adapted rather than copied.
+// Verified paper-by-paper — see the app's data notes for details.
+function setCriteriaSourceBadge(elId, criteriaSource) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  if (criteriaSource === "derived") {
+    el.textContent = "Derived criteria";
+    el.className = "criteria-source-badge derived";
+    el.title = "The source paper didn't give a clean per-mark table here, so this wording was written/adapted rather than copied verbatim.";
+  } else {
+    el.textContent = "Actual criteria";
+    el.className = "criteria-source-badge official";
+    el.title = "Copied/paraphrased directly from the source paper's own marking guidelines.";
+  }
+}
+
 // Renders the official mark-band descriptors (highest first, as stored) so
 // students can see exactly what was required at each level — not just the
 // AI's summary of their own answer.
@@ -780,6 +801,7 @@ function renderResult(grade, answer) {
   document.getElementById("verdict-text").textContent = grade.verdict || "";
   document.getElementById("result-source-caption").textContent = q.source ? `Source: ${q.source}` : "";
   renderCriteriaList("criteria-list", q.criteria);
+  setCriteriaSourceBadge("result-criteria-source", q.criteriaSource);
   fillList("strengths-list", grade.strengths);
   fillList("gaps-list", grade.marks_lost);
   fillList("tips-list", grade.improvement_tips);
@@ -902,7 +924,10 @@ function openHistoryDetail(a) {
   document.getElementById("hd-verdict-text").textContent = a.verdict || "";
   const srcQuestion = (QUESTIONS[a.subject] || []).find((q) => q.id === a.questionId);
   document.getElementById("hd-criteria-block").style.display = srcQuestion ? "block" : "none";
-  if (srcQuestion) renderCriteriaList("hd-criteria-list", srcQuestion.criteria);
+  if (srcQuestion) {
+    renderCriteriaList("hd-criteria-list", srcQuestion.criteria);
+    setCriteriaSourceBadge("hd-criteria-source", srcQuestion.criteriaSource);
+  }
   fillList("hd-strengths-list", a.strengths);
   fillList("hd-gaps-list", a.marksLost);
   fillList("hd-tips-list", a.improvementTips);

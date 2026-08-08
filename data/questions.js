@@ -8,6 +8,7 @@ const QUESTIONS = {
     // ============ 1 MARK ============
     {
       id: "bs-1-1",
+      "criteriaSource": "official",
       marks: 1,
       topic: "Operations",
       source: "CSSA 2025 Trial HSC",
@@ -21,6 +22,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-1-2",
+      "criteriaSource": "derived",
       marks: 1,
       topic: "Operations",
       source: "Original — NESA-style",
@@ -34,6 +36,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-1-3",
+      "criteriaSource": "derived",
       marks: 1,
       topic: "Finance",
       source: "Original — NESA-style",
@@ -47,6 +50,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-1-4",
+      "criteriaSource": "derived",
       marks: 1,
       topic: "Finance",
       source: "Original — NESA-style",
@@ -62,6 +66,7 @@ const QUESTIONS = {
     // ============ 2 MARK ============
     {
       id: "bs-2-1",
+      "criteriaSource": "official",
       marks: 2,
       topic: "Marketing",
       source: "CSSA 2025 Trial HSC (Q22a)",
@@ -76,6 +81,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-2-2",
+      "criteriaSource": "official",
       marks: 2,
       topic: "Finance",
       source: "CSSA 2025 Trial HSC (Q23a)",
@@ -90,6 +96,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-2-3",
+      "criteriaSource": "official",
       marks: 2,
       topic: "Operations",
       source: "CSSA 2024 Trial HSC (Q22a), adapted",
@@ -104,6 +111,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-2-4",
+      "criteriaSource": "official",
       marks: 2,
       topic: "Finance",
       source: "CSSA 2024 Trial HSC (Q21a)",
@@ -118,6 +126,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-2-5",
+      "criteriaSource": "official",
       marks: 2,
       topic: "Human Resources",
       source: "CSSA 2024 Trial HSC (Q24a)",
@@ -134,6 +143,7 @@ const QUESTIONS = {
     // ============ 3 MARK ============
     {
       id: "bs-3-1",
+      "criteriaSource": "official",
       marks: 3,
       topic: "Operations",
       source: "CSSA 2025 Trial HSC (Q21b)",
@@ -149,6 +159,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-3-2",
+      "criteriaSource": "derived",
       marks: 3,
       topic: "Human Resources",
       source: "CSSA 2025 Trial HSC (Q24a)",
@@ -164,6 +175,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-3-3",
+      "criteriaSource": "official",
       marks: 3,
       topic: "Human Resources",
       source: "CSSA 2025 Trial HSC (Q24b)",
@@ -179,6 +191,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-3-4",
+      "criteriaSource": "official",
       marks: 3,
       topic: "Finance",
       source: "CSSA 2024 Trial HSC (Q21b)",
@@ -194,6 +207,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-3-5",
+      "criteriaSource": "official",
       marks: 3,
       topic: "Finance",
       source: "CSSA 2024 Trial HSC (Q21c)",
@@ -211,6 +225,7 @@ const QUESTIONS = {
     // ============ 4 MARK ============
     {
       id: "bs-4-1",
+      "criteriaSource": "derived",
       marks: 4,
       topic: "Marketing",
       source: "CSSA 2025 Trial HSC (Q22b)",
@@ -227,6 +242,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-2",
+      "criteriaSource": "derived",
       marks: 4,
       topic: "Marketing",
       source: "CSSA 2025 Trial HSC (Q22c)",
@@ -243,6 +259,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-3",
+      "criteriaSource": "official",
       marks: 4,
       topic: "Finance",
       source: "CSSA 2025 Trial HSC (Q23b)",
@@ -259,6 +276,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-4",
+      "criteriaSource": "derived",
       marks: 4,
       topic: "Finance",
       source: "CSSA 2025 Trial HSC (Q23c), adapted",
@@ -275,6 +293,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-5",
+      "criteriaSource": "official",
       marks: 4,
       topic: "Human Resources",
       source: "CSSA 2025 Trial HSC (Q24c)",
@@ -291,6 +310,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-6",
+      "criteriaSource": "official",
       marks: 4,
       topic: "Marketing",
       source: "CSSA 2024 Trial HSC (Q23b)",
@@ -307,6 +327,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-7",
+      "criteriaSource": "official",
       marks: 4,
       topic: "Human Resources",
       source: "CSSA 2024 Trial HSC (Q24b)",
@@ -323,6 +344,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-4-8",
+      "criteriaSource": "official",
       marks: 4,
       topic: "Human Resources",
       source: "CSSA 2024 Trial HSC (Q24c)",
@@ -341,6 +363,7 @@ const QUESTIONS = {
     // ============ 5 MARK ============
     {
       id: "bs-5-1",
+      "criteriaSource": "official",
       marks: 5,
       topic: "Operations",
       source: "CSSA 2024 Trial HSC (Q22c), adapted",
@@ -358,6 +381,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-5-2",
+      "criteriaSource": "derived",
       marks: 5,
       topic: "Human Resources",
       source: "Original — NESA-style",
@@ -375,6 +399,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-5-3",
+      "criteriaSource": "derived",
       marks: 5,
       topic: "Finance",
       source: "Original — NESA-style",
@@ -394,6 +419,7 @@ const QUESTIONS = {
     // ============ 6 MARK ============
     {
       id: "bs-6-1",
+      "criteriaSource": "derived",
       marks: 6,
       topic: "Business Environment",
       source: "CSSA 2025 Trial HSC (Q21c)",
@@ -412,6 +438,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-6-2",
+      "criteriaSource": "official",
       marks: 6,
       topic: "Marketing",
       source: "CSSA 2024 Trial HSC (Q23c)",
@@ -430,6 +457,7 @@ const QUESTIONS = {
     },
     {
       id: "bs-6-3",
+      "criteriaSource": "derived",
       marks: 6,
       topic: "Marketing",
       source: "Original — NESA-style",
@@ -449,6 +477,7 @@ const QUESTIONS = {
 ,
   {
     "id": "bs-3-intermediate-market",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Marketing",
     "source": "CSSA 2022 Trial HSC (Q21a)",
@@ -464,6 +493,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-implied-conditions",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Marketing",
     "source": "CSSA 2022 Trial HSC (Q21b)",
@@ -479,6 +509,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-branding-strategy",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "CSSA 2022 Trial HSC (Q21c)",
@@ -495,6 +526,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-outsourcing-disadvantage",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "CSSA 2022 Trial HSC (Q22a)",
@@ -509,6 +541,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-warranties-importance",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Operations",
     "source": "CSSA 2022 Trial HSC (Q22b)",
@@ -524,6 +557,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-5-outsourcing-csr",
+    "criteriaSource": "official",
     "marks": 5,
     "topic": "Operations",
     "source": "CSSA 2022 Trial HSC (Q22c)",
@@ -541,6 +575,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-financial-management-role",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "CSSA 2022 Trial HSC (Q23a)",
@@ -555,6 +590,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-global-market-influence",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Finance",
     "source": "CSSA 2022 Trial HSC (Q23b)",
@@ -571,6 +607,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-equity-finance-justify",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Finance",
     "source": "CSSA 2022 Trial HSC (Q23c)",
@@ -587,6 +624,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-whs-workers-compensation",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Human Resources",
     "source": "CSSA 2022 Trial HSC (Q24a)",
@@ -601,6 +639,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-external-recruitment",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Human Resources",
     "source": "CSSA 2022 Trial HSC (Q24b)",
@@ -617,6 +656,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-training-development",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Human Resources",
     "source": "CSSA 2022 Trial HSC (Q24c)",
@@ -633,6 +673,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-transformed-resources",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "Penrith 2021 Trial HSC (Q21a)",
@@ -647,6 +688,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-variation-demand",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Operations",
     "source": "Penrith 2021 Trial HSC (Q21b)",
@@ -662,6 +704,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-cost-quality-balance",
+    "criteriaSource": "official",
     "marks": 6,
     "topic": "Operations",
     "source": "Penrith 2021 Trial HSC (Q21c)",
@@ -680,6 +723,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-working-capital-change",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Penrith 2021 Trial HSC (Q23a)",
@@ -694,6 +738,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-accounts-receivable-turnover",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Finance",
     "source": "Penrith 2021 Trial HSC (Q23b)",
@@ -709,6 +754,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-return-on-equity",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Finance",
     "source": "Penrith 2021 Trial HSC (Q23c)",
@@ -724,6 +770,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-normalised-earnings",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Finance",
     "source": "Penrith 2021 Trial HSC (Q23d)",
@@ -740,6 +787,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-merino-strength",
+    "criteriaSource": "official",
     "marks": 1,
     "topic": "Business Environment",
     "source": "Penrith 2021 Trial HSC (Q24a)",
@@ -753,6 +801,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-market-research-process",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Penrith 2021 Trial HSC (Q24b)",
@@ -769,6 +818,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-5-promotional-strategy",
+    "criteriaSource": "official",
     "marks": 5,
     "topic": "Marketing",
     "source": "Penrith 2021 Trial HSC (Q24c)",
@@ -787,6 +837,7 @@ const QUESTIONS = {
 ,
   {
     "id": "bs-2-plc-decline-characteristics",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Barker 2022 Trial HSC (Q21a)",
@@ -801,6 +852,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-marketing-strategy-declining-performance",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Barker 2022 Trial HSC (Q21b)",
@@ -815,6 +867,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-breach-consumer-laws",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Marketing",
     "source": "Barker 2022 Trial HSC (Q21c)",
@@ -830,6 +883,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-ethical-behaviour-customer-perception",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Marketing",
     "source": "Barker 2022 Trial HSC (Q21d)",
@@ -845,6 +899,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-speed-vs-quality-objectives",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "Barker 2022 Trial HSC (Q22a)",
@@ -859,6 +914,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-monitoring-controlling-recovery",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Operations",
     "source": "Barker 2022 Trial HSC (Q22b)",
@@ -875,6 +931,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-resistance-to-change-factor",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Operations",
     "source": "Barker 2022 Trial HSC (Q22c)",
@@ -891,6 +948,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-productivity-profitability-relationship",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Human Resources",
     "source": "Barker 2022 Trial HSC (Q23a)",
@@ -905,6 +963,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-outsourcing-acquisition-process",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Human Resources",
     "source": "Barker 2022 Trial HSC (Q23b)",
@@ -921,6 +980,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-corporate-culture-success",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Human Resources",
     "source": "Barker 2022 Trial HSC (Q23c)",
@@ -937,6 +997,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-liquidity-ratio-interpret",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Barker 2022 Trial HSC (Q24a)",
@@ -951,6 +1012,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-currency-fluctuation-protection",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Barker 2022 Trial HSC (Q24b)",
@@ -965,6 +1027,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-mortgage-vs-lease",
+    "criteriaSource": "official",
     "marks": 6,
     "topic": "Finance",
     "source": "Barker 2022 Trial HSC (Q24c)",
@@ -983,6 +1046,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-common-law-stakeholder",
+    "criteriaSource": "official",
     "marks": 1,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q21a)",
@@ -996,6 +1060,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-common-law-employee-obligations",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q21b)",
@@ -1010,6 +1075,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-workplace-dispute-analysis",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q21c)",
@@ -1025,6 +1091,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-operations-hr-interdependence",
+    "criteriaSource": "derived",
     "marks": 2,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q22a)",
@@ -1039,6 +1106,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-critical-path-length-calc",
+    "criteriaSource": "official",
     "marks": 1,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q22b-I)",
@@ -1052,6 +1120,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-critical-path-tool-usefulness",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q22b-II)",
@@ -1067,6 +1136,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-technology-operations-process",
+    "criteriaSource": "derived",
     "marks": 4,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q22c)",
@@ -1083,6 +1153,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-market-orientation-features",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q23a)",
@@ -1097,6 +1168,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-marketing-objectives-expansion",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q23b)",
@@ -1113,6 +1185,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-pricing-strategies-recommend",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q23c)",
@@ -1129,6 +1202,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-gearing-change-comment",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q24a)",
@@ -1143,6 +1217,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-working-capital-calc",
+    "criteriaSource": "derived",
     "marks": 1,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q24b)",
@@ -1156,6 +1231,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-debt-finance-definition",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q24c)",
@@ -1170,6 +1246,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-finance-option-equipment-purchase",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q24d)",
@@ -1185,6 +1262,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-global-financial-strategy-letter-of-credit",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2014 Trial HSC (Q24e)",
@@ -1201,6 +1279,7 @@ const QUESTIONS = {
 ,
   {
     "id": "bs-2-operations-influences",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q21a)",
@@ -1215,6 +1294,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-jit-advantage",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q21b)",
@@ -1229,6 +1309,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-customer-service-success",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q21c)",
@@ -1243,6 +1324,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-improve-quality-approaches",
+    "criteriaSource": "derived",
     "marks": 4,
     "topic": "Operations",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q21d)",
@@ -1258,6 +1340,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-non-monetary-benefit-psl",
+    "criteriaSource": "official",
     "marks": 1,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q22a)",
@@ -1271,6 +1354,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-employee-participation-psl",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q22b)",
@@ -1286,6 +1370,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-family-friendly-arrangements-psl",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Human Resources",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q22c)",
@@ -1301,6 +1386,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-consumer-law-purpose",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q23a)",
@@ -1315,6 +1401,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-measuring-marketing-plan-success",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q23b)",
@@ -1329,6 +1416,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-communication-process-target-market",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Marketing",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q23c)",
@@ -1344,6 +1432,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-house-party-liquidity",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q24a)",
@@ -1358,6 +1447,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-house-party-efficiency",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q24b)",
@@ -1372,6 +1462,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-house-party-improve-liquidity",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q24c)",
@@ -1386,6 +1477,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-house-party-improve-efficiency",
+    "criteriaSource": "derived",
     "marks": 4,
     "topic": "Finance",
     "source": "Cherrybrook Tech 2015 Trial HSC (Q24d)",
@@ -1401,6 +1493,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-naturally-wild-sociocultural-psychological",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Knox 2021 Trial HSC (Q21a)",
@@ -1417,6 +1510,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-naturally-wild-globalisation-marketing",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Marketing",
     "source": "Knox 2021 Trial HSC (Q21b)",
@@ -1434,6 +1528,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-eucalife-legal-regulation",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Operations",
     "source": "Knox 2021 Trial HSC (Q22a)",
@@ -1448,6 +1543,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-eucalife-holding-stock",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Operations",
     "source": "Knox 2021 Trial HSC (Q22b)",
@@ -1464,6 +1560,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-eucalife-global-sourcing",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Operations",
     "source": "Knox 2021 Trial HSC (Q22c)",
@@ -1480,6 +1577,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-lobe-financial-report-limitation",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Knox 2021 Trial HSC (Q23a)",
@@ -1494,6 +1592,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-lobe-government-influence-finance",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Knox 2021 Trial HSC (Q23b)",
@@ -1508,6 +1607,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-lobe-source-of-finance",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Finance",
     "source": "Knox 2021 Trial HSC (Q23c)",
@@ -1524,6 +1624,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-mara-enterprise-agreement",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Human Resources",
     "source": "Knox 2021 Trial HSC (Q24a)",
@@ -1538,6 +1639,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-mara-grievance-procedures",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Human Resources",
     "source": "Knox 2021 Trial HSC (Q24b)",
@@ -1553,6 +1655,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-5-mara-hr-strategies-effectiveness",
+    "criteriaSource": "derived",
     "marks": 5,
     "topic": "Human Resources",
     "source": "Knox 2021 Trial HSC (Q24c)",
@@ -1569,6 +1672,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-qtc-debt-to-equity",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Finance",
     "source": "Knox 2022 Trial HSC (Q21a)",
@@ -1583,6 +1687,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-qtc-solvency-strategy",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Finance",
     "source": "Knox 2022 Trial HSC (Q21b)",
@@ -1598,6 +1703,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-5-qtc-rights-issue",
+    "criteriaSource": "official",
     "marks": 5,
     "topic": "Finance",
     "source": "Knox 2022 Trial HSC (Q21c)",
@@ -1615,6 +1721,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-1-vq-transforming-resource",
+    "criteriaSource": "official",
     "marks": 1,
     "topic": "Operations",
     "source": "Knox 2022 Trial HSC (Q22a)",
@@ -1628,6 +1735,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-vq-legal-regulation-operations",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Operations",
     "source": "Knox 2022 Trial HSC (Q22b)",
@@ -1643,6 +1751,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-6-vq-quality-management-strategies",
+    "criteriaSource": "derived",
     "marks": 6,
     "topic": "Operations",
     "source": "Knox 2022 Trial HSC (Q22c)",
@@ -1660,6 +1769,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-awards-vs-enterprise-agreements",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Human Resources",
     "source": "Knox 2022 Trial HSC (Q23a)",
@@ -1675,6 +1785,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-3-key-airways-dispute-resolution",
+    "criteriaSource": "official",
     "marks": 3,
     "topic": "Human Resources",
     "source": "Knox 2022 Trial HSC (Q23b)",
@@ -1690,6 +1801,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-hr-profitability-interdependence",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Human Resources",
     "source": "Knox 2022 Trial HSC (Q23c)",
@@ -1706,6 +1818,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-2-cafe-indirect-distribution",
+    "criteriaSource": "official",
     "marks": 2,
     "topic": "Marketing",
     "source": "Knox 2022 Trial HSC (Q24a)",
@@ -1720,6 +1833,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-cafe-economic-influences-marketing",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Knox 2022 Trial HSC (Q24b)",
@@ -1736,6 +1850,7 @@ const QUESTIONS = {
   },
   {
     "id": "bs-4-cafe-relationship-marketing",
+    "criteriaSource": "official",
     "marks": 4,
     "topic": "Marketing",
     "source": "Knox 2022 Trial HSC (Q24c)",
@@ -1754,6 +1869,7 @@ const QUESTIONS = {
     // ============ Additional papers batch (Barker/Cherrybrook/Hills Grammar/Knox/Penrith/Pymble/Riverview/Shore/Sydney Boys/Sydney Tech) ============
 {
         "id":  "bs-1-barker13-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Marketing",
         "source":  "Barker College 2013 Trial HSC (Q21a)",
@@ -1770,6 +1886,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-barker13-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Finance",
         "source":  "Barker College 2013 Trial HSC (Q22a)",
@@ -1829,6 +1946,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Barker College 2013 Trial HSC (Q22b)",
@@ -1892,6 +2010,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Barker College 2013 Trial HSC (Q23a)",
@@ -1912,6 +2031,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Barker College 2013 Trial HSC (Q23b)",
@@ -1932,6 +2052,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Barker College 2013 Trial HSC (Q24a)",
@@ -1952,6 +2073,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Barker College 2013 Trial HSC (Q24b)",
@@ -1972,6 +2094,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-barker13-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Barker College 2013 Trial HSC (Q24c)",
@@ -1992,6 +2115,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-barker13-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Barker College 2013 Trial HSC (Q21b)",
@@ -2016,6 +2140,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-barker13-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Barker College 2013 Trial HSC (Q22c)",
@@ -2083,6 +2208,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-barker13-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Barker College 2013 Trial HSC (Q22d)",
@@ -2154,6 +2280,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-barker13-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Barker College 2013 Trial HSC (Q24d)",
@@ -2174,6 +2301,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-barker13-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Barker College 2013 Trial HSC (Q21c)",
@@ -2198,6 +2326,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-barker13-2",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Barker College 2013 Trial HSC (Q23c)",
@@ -2222,6 +2351,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Hills Grammar 2015 Trial HSC (Q21a)",
@@ -2242,6 +2372,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Hills Grammar 2015 Trial HSC (Q21b)",
@@ -2262,6 +2393,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Hills Grammar 2015 Trial HSC (Q21c)",
@@ -2282,6 +2414,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Hills Grammar 2015 Trial HSC (Q22a)",
@@ -2302,6 +2435,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Hills Grammar 2015 Trial HSC (Q22b)",
@@ -2322,6 +2456,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Hills Grammar 2015 Trial HSC (Q22c)",
@@ -2342,6 +2477,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-hillsgr15-7",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Hills Grammar 2015 Trial HSC (Q23a)",
@@ -2362,6 +2498,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-hillsgr15-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Hills Grammar 2015 Trial HSC (Q21d)",
@@ -2390,6 +2527,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-hillsgr15-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Hills Grammar 2015 Trial HSC (Q22d)",
@@ -2418,6 +2556,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-hillsgr15-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Hills Grammar 2015 Trial HSC (Q24b)",
@@ -2446,6 +2585,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-hillsgr15-1",
+        "criteriaSource": "official",
         "marks":  6,
         "topic":  "Business Management",
         "source":  "Hills Grammar 2015 Trial HSC (Q24a)",
@@ -2482,6 +2622,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Knox Grammar 2013 Trial HSC (Q21a)",
@@ -2502,6 +2643,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Knox Grammar 2013 Trial HSC (Q21b)",
@@ -2522,6 +2664,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Knox Grammar 2013 Trial HSC (Q22a)",
@@ -2542,6 +2685,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Knox Grammar 2013 Trial HSC (Q22b)",
@@ -2562,6 +2706,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Knox Grammar 2013 Trial HSC (Q22c)",
@@ -2582,6 +2727,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Knox Grammar 2013 Trial HSC (Q23a)",
@@ -2602,6 +2748,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-7",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Knox Grammar 2013 Trial HSC (Q23b)",
@@ -2622,6 +2769,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox13-8",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Knox Grammar 2013 Trial HSC (Q24a)",
@@ -2642,6 +2790,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-knox13-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Knox Grammar 2013 Trial HSC (Q22d(i))",
@@ -2666,6 +2815,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-knox13-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Knox Grammar 2013 Trial HSC (Q22d(ii))",
@@ -2690,6 +2840,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox13-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Knox Grammar 2013 Trial HSC (Q21c)",
@@ -2718,6 +2869,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox13-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox Grammar 2013 Trial HSC (Q24b)",
@@ -2738,6 +2890,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox13-3",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox Grammar 2013 Trial HSC (Q24c)",
@@ -2758,6 +2911,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-knox13-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Knox Grammar 2013 Trial HSC (Q23c)",
@@ -2782,6 +2936,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith20-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2020 Trial HSC (Q21a)",
@@ -2806,6 +2961,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith20-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2020 Trial HSC (Q21b)",
@@ -2830,6 +2986,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith20-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2020 Trial HSC (Q21c)",
@@ -2858,6 +3015,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-penrith20-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Penrith Selective 2020 Trial HSC (Q22a)",
@@ -2878,6 +3036,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith20-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Penrith Selective 2020 Trial HSC (Q22b)",
@@ -2906,6 +3065,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith20-3",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Penrith Selective 2020 Trial HSC (Q22c)",
@@ -2934,6 +3094,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith20-4",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Penrith Selective 2020 Trial HSC (Q23a)",
@@ -2962,6 +3123,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-penrith20-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Human Resources",
         "source":  "Penrith Selective 2020 Trial HSC (Q23b)",
@@ -2986,6 +3148,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-penrith20-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Penrith Selective 2020 Trial HSC (Q24a)",
@@ -3006,6 +3169,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith20-3",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Operations",
         "source":  "Penrith Selective 2020 Trial HSC (Q24b)",
@@ -3030,6 +3194,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-penrith20-1",
+        "criteriaSource": "official",
         "marks":  5,
         "topic":  "Operations",
         "source":  "Penrith Selective 2020 Trial HSC (Q24c)",
@@ -3062,6 +3227,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-penrith21-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2021 Trial HSC (Q24a)",
@@ -3078,6 +3244,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-penrith21-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Penrith Selective 2021 Trial HSC (Q21a)",
@@ -3098,6 +3265,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-penrith21-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Penrith Selective 2021 Trial HSC (Q23a)",
@@ -3242,6 +3410,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith21-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Operations",
         "source":  "Penrith Selective 2021 Trial HSC (Q21b)",
@@ -3266,6 +3435,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith21-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Penrith Selective 2021 Trial HSC (Q23b)",
@@ -3414,6 +3584,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-penrith21-3",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Penrith Selective 2021 Trial HSC (Q23c)",
@@ -3562,6 +3733,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith21-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Penrith Selective 2021 Trial HSC (Q23d)",
@@ -3694,11 +3866,19 @@ const QUESTIONS = {
         "criteria":  [
                          {
                              "marks":  4,
-                             "descriptor":  "Provides how and/or why BOTH normalised earnings and capitalising expenses could affect the financial statements for Local Couriers"
+                             "descriptor":  "Provides how and/or why normalised earnings and capitalising expenses could affect the financial statements for Local Couriers"
+                         },
+                         {
+                             "marks":  3,
+                             "descriptor":  "Provides how and/or why normalised earnings or capitalising expenses could affect the financial statements for Local Couriers and identifies the other"
                          },
                          {
                              "marks":  2,
-                             "descriptor":  "Provides how and/or why normalised earnings OR capitalising expenses could affect the financial statements for Local Couriers, and identifies the other, OR makes a general statement about both"
+                             "descriptor":  "Provides how and/or why normalised earnings or capitalising expenses could affect the financial statements for Local Couriers OR makes a general statement about normalised earnings and capitalising expenses for Local Couriers"
+                         },
+                         {
+                             "marks":  1,
+                             "descriptor":  "Makes a general statement about normalised earnings or capitalising expenses"
                          }
                      ],
         "keyPoints":  "Normalised earnings adjust for irregular/one-off influences (e.g. a COVID-19-related downturn) to more accurately represent underlying earnings. Capitalising expenses records an expense as an asset rather than an expense, increasing non-current assets and reported profit, improving the apparent financial position and performance, though potentially misleading stakeholders.",
@@ -3706,6 +3886,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-penrith21-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2021 Trial HSC (Q24b)",
@@ -3734,6 +3915,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-penrith21-1",
+        "criteriaSource": "official",
         "marks":  5,
         "topic":  "Marketing",
         "source":  "Penrith Selective 2021 Trial HSC (Q24c)",
@@ -3766,6 +3948,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-penrith21-1",
+        "criteriaSource": "official",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Penrith Selective 2021 Trial HSC (Q21c)",
@@ -3802,6 +3985,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-pymble14-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Marketing",
         "source":  "Pymble 2014 Trial HSC (Q21a)",
@@ -3818,6 +4002,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Pymble 2014 Trial HSC (Q21b)",
@@ -3838,6 +4023,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Pymble 2014 Trial HSC (Q21c)",
@@ -3858,6 +4044,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Pymble 2014 Trial HSC (Q21d)",
@@ -3878,6 +4065,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-pymble14-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Pymble 2014 Trial HSC (Q21e)",
@@ -3902,6 +4090,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-pymble14-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Human Resources",
         "source":  "Pymble 2014 Trial HSC (Q22a)",
@@ -3918,6 +4107,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Pymble 2014 Trial HSC (Q22b)",
@@ -3938,6 +4128,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble14-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Pymble 2014 Trial HSC (Q22c)",
@@ -3966,6 +4157,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble14-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Pymble 2014 Trial HSC (Q22d)",
@@ -3994,6 +4186,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Pymble 2014 Trial HSC (Q23a)",
@@ -4014,6 +4207,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Pymble 2014 Trial HSC (Q23b)",
@@ -4034,6 +4228,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble14-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Pymble 2014 Trial HSC (Q23c)",
@@ -4062,6 +4257,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-7",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Pymble 2014 Trial HSC (Q23d)",
@@ -4082,6 +4278,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble14-8",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Pymble 2014 Trial HSC (Q24a)",
@@ -4213,6 +4410,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-pymble14-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Pymble 2014 Trial HSC (Q24b)",
@@ -4348,6 +4546,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble14-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Pymble 2014 Trial HSC (Q24c)",
@@ -4487,6 +4686,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Pymble 2015 Trial HSC (Q21a)",
@@ -4507,6 +4707,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble15-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Pymble 2015 Trial HSC (Q21b)",
@@ -4535,6 +4736,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble15-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Pymble 2015 Trial HSC (Q21d)",
@@ -4563,6 +4765,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Pymble 2015 Trial HSC (Q22a)",
@@ -4583,6 +4786,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Pymble 2015 Trial HSC (Q22b)",
@@ -4603,6 +4807,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Pymble 2015 Trial HSC (Q22c)",
@@ -4623,6 +4828,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble15-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Pymble 2015 Trial HSC (Q22d)",
@@ -4651,6 +4857,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Pymble 2015 Trial HSC (Q23a)",
@@ -4671,6 +4878,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Pymble 2015 Trial HSC (Q23b)",
@@ -4691,6 +4899,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-pymble15-1",
+        "criteriaSource": "official",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Pymble 2015 Trial HSC (Q23c)",
@@ -4727,6 +4936,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-7",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Pymble 2015 Trial HSC (Q24a)",
@@ -4790,6 +5000,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-8",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Pymble 2015 Trial HSC (Q24b)",
@@ -4853,6 +5064,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-pymble15-9",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Pymble 2015 Trial HSC (Q24c)",
@@ -4916,6 +5128,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-pymble15-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Pymble 2015 Trial HSC (Q24d)",
@@ -4987,6 +5200,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys13-1",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2013 Trial HSC (Q21a)",
@@ -5007,6 +5221,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys13-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2013 Trial HSC (Q21b)",
@@ -5035,6 +5250,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys13-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2013 Trial HSC (Q21c)",
@@ -5063,6 +5279,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys13-2",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q22a)",
@@ -5083,6 +5300,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys13-3",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q22b)",
@@ -5111,6 +5329,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys13-4",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q22c)",
@@ -5139,6 +5358,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys13-5",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q23a)",
@@ -5167,6 +5387,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys13-1",
+        "criteriaSource": "derived",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q23b)",
@@ -5191,6 +5412,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys13-2",
+        "criteriaSource": "derived",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2013 Trial HSC (Q23c)",
@@ -5215,6 +5437,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys13-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Boys 2013 Trial HSC (Q24a)",
@@ -5328,6 +5551,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys13-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Boys 2013 Trial HSC (Q24b)",
@@ -5441,6 +5665,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys13-3",
+        "criteriaSource": "derived",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Sydney Boys 2013 Trial HSC (Q24c)",
@@ -5558,6 +5783,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys13-4",
+        "criteriaSource": "derived",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Sydney Boys 2013 Trial HSC (Q24d)",
@@ -5675,6 +5901,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydboys14-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Operations",
         "source":  "Sydney Boys 2014 Trial HSC (Q21a-i)",
@@ -5691,6 +5918,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys14-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Operations",
         "source":  "Sydney Boys 2014 Trial HSC (Q21a-ii)",
@@ -5715,6 +5943,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-sydboys14-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Sydney Boys 2014 Trial HSC (Q21b)",
@@ -5751,6 +5980,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydboys14-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2014 Trial HSC (Q22a)",
@@ -5767,6 +5997,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys14-2",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2014 Trial HSC (Q22b)",
@@ -5791,6 +6022,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys14-1",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2014 Trial HSC (Q22c)",
@@ -5811,6 +6043,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydboys14-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Boys 2014 Trial HSC (Q22d)",
@@ -5839,6 +6072,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydboys14-3",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Finance",
         "source":  "Sydney Boys 2014 Trial HSC (Q23a)",
@@ -5950,6 +6184,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys14-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Boys 2014 Trial HSC (Q23b)",
@@ -6065,6 +6300,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydboys14-3",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Boys 2014 Trial HSC (Q23c)",
@@ -6180,6 +6416,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-sydboys14-1",
+        "criteriaSource": "derived",
         "marks":  5,
         "topic":  "Finance",
         "source":  "Sydney Boys 2014 Trial HSC (Q23d)",
@@ -6307,6 +6544,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydboys14-4",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2014 Trial HSC (Q24a)",
@@ -6323,6 +6561,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys14-3",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2014 Trial HSC (Q24b)",
@@ -6347,6 +6586,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys14-4",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2014 Trial HSC (Q24c)",
@@ -6371,6 +6611,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-sydboys14-5",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Human Resources",
         "source":  "Sydney Boys 2014 Trial HSC (Q24d)",
@@ -6395,6 +6636,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydtech13-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Sydney Tech 2013 Trial HSC (Q21a)",
@@ -6415,6 +6657,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Sydney Tech 2013 Trial HSC (Q21b)",
@@ -6443,6 +6686,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Sydney Tech 2013 Trial HSC (Q21c)",
@@ -6471,6 +6715,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydtech13-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Sydney Tech 2013 Trial HSC (Q22a)",
@@ -6491,6 +6736,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Tech 2013 Trial HSC (Q22b)",
@@ -6519,6 +6765,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Sydney Tech 2013 Trial HSC (Q22c)",
@@ -6547,6 +6794,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydtech13-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Sydney Tech 2013 Trial HSC (Q23a)",
@@ -6567,6 +6815,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-5",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Sydney Tech 2013 Trial HSC (Q23b)",
@@ -6595,6 +6844,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-6",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Sydney Tech 2013 Trial HSC (Q23c)",
@@ -6623,6 +6873,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydtech13-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Finance",
         "source":  "Sydney Tech 2013 Trial HSC (Q24ai)",
@@ -6734,6 +6985,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-sydtech13-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Finance",
         "source":  "Sydney Tech 2013 Trial HSC (Q24aii)",
@@ -6845,6 +7097,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydtech13-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Tech 2013 Trial HSC (Q24b)",
@@ -6960,6 +7213,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-sydtech13-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Sydney Tech 2013 Trial HSC (Q24c)",
@@ -7075,6 +7329,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-sydtech13-7",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Sydney Tech 2013 Trial HSC (Q24d)",
@@ -7198,6 +7453,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox18-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Knox 2018 Trial HSC (Q21a)",
@@ -7226,6 +7482,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-knox18-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Human Resources",
         "source":  "Knox 2018 Trial HSC (Q21b)",
@@ -7262,6 +7519,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox18-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Knox 2018 Trial HSC (Q22a)",
@@ -7290,6 +7548,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-knox18-2",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Knox 2018 Trial HSC (Q22b)",
@@ -7326,6 +7585,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox18-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Knox 2018 Trial HSC (Q23a)",
@@ -7399,6 +7659,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox18-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox 2018 Trial HSC (Q23b)",
@@ -7480,6 +7741,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox18-4",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox 2018 Trial HSC (Q23c)",
@@ -7561,6 +7823,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox18-5",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Knox 2018 Trial HSC (Q24a)",
@@ -7589,6 +7852,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-knox18-3",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Knox 2018 Trial HSC (Q24b)",
@@ -7625,6 +7889,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox19-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Knox 2019 Trial HSC (Q21a)",
@@ -7645,6 +7910,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Knox 2019 Trial HSC (Q21b)",
@@ -7721,6 +7987,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Knox 2019 Trial HSC (Q21c)",
@@ -7797,6 +8064,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox19-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Knox 2019 Trial HSC (Q22a)",
@@ -7817,6 +8085,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Knox 2019 Trial HSC (Q22b)",
@@ -7845,6 +8114,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Knox 2019 Trial HSC (Q22c)",
@@ -7873,6 +8143,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-knox19-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Knox 2019 Trial HSC (Q23a)",
@@ -7893,6 +8164,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-5",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox 2019 Trial HSC (Q23b)",
@@ -8004,6 +8276,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-6",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Knox 2019 Trial HSC (Q23c)",
@@ -8115,6 +8388,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-knox19-7",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Knox 2019 Trial HSC (Q24a)",
@@ -8143,6 +8417,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-knox19-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Knox 2019 Trial HSC (Q24b)",
@@ -8179,6 +8454,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q21a)",
@@ -8199,6 +8475,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-cherry13-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Operations",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q21b)",
@@ -8223,6 +8500,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-cherry13-1",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q21c)",
@@ -8251,6 +8529,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-cherry13-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Marketing",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q22a)",
@@ -8267,6 +8546,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q22b)",
@@ -8287,6 +8567,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q22c)",
@@ -8307,6 +8588,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-cherry13-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q22d)",
@@ -8335,6 +8617,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q23a)",
@@ -8408,6 +8691,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q23b)",
@@ -8481,6 +8765,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-cherry13-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q23c)",
@@ -8554,6 +8839,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-cherry13-3",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q23d)",
@@ -8635,6 +8921,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-cherry13-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Human Resources",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q24a)",
@@ -8651,6 +8938,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-cherry13-2",
+        "criteriaSource": "derived",
         "marks":  3,
         "topic":  "Human Resources",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q24b)",
@@ -8675,6 +8963,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-cherry13-4",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q24c)",
@@ -8703,6 +8992,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-cherry13-5",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Cherrybrook Tech 2013 Trial HSC (Q24d)",
@@ -8731,6 +9021,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Riverview 2014 Trial HSC (Q21a)",
@@ -8751,6 +9042,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Riverview 2014 Trial HSC (Q21b)",
@@ -8771,6 +9063,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-riverview14-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Riverview 2014 Trial HSC (Q21c)",
@@ -8807,6 +9100,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-3",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Riverview 2014 Trial HSC (Q22a)",
@@ -8827,6 +9121,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Riverview 2014 Trial HSC (Q22b)",
@@ -8847,6 +9142,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-riverview14-2",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Operations",
         "source":  "Riverview 2014 Trial HSC (Q22c)",
@@ -8883,6 +9179,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-5",
+        "criteriaSource": "derived",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Riverview 2014 Trial HSC (Q23a)",
@@ -8903,6 +9200,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-riverview14-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Riverview 2014 Trial HSC (Q23b)",
@@ -8931,6 +9229,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-riverview14-2",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Riverview 2014 Trial HSC (Q23c)",
@@ -8959,6 +9258,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Riverview 2014 Trial HSC (Q24a)",
@@ -9082,6 +9382,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-7",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Riverview 2014 Trial HSC (Q24b)",
@@ -9205,6 +9506,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-riverview14-8",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Riverview 2014 Trial HSC (Q24c)",
@@ -9225,6 +9527,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-riverview14-3",
+        "criteriaSource": "derived",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Riverview 2014 Trial HSC (Q24d)",
@@ -9253,6 +9556,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Shore 2015 Trial HSC (Q21a)",
@@ -9273,6 +9577,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Shore 2015 Trial HSC (Q21b)",
@@ -9301,6 +9606,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Shore 2015 Trial HSC (Q21c)",
@@ -9329,6 +9635,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-shore15-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Human Resources",
         "source":  "Shore 2015 Trial HSC (Q22a)",
@@ -9345,6 +9652,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Shore 2015 Trial HSC (Q22b)",
@@ -9365,6 +9673,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-shore15-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Human Resources",
         "source":  "Shore 2015 Trial HSC (Q22c)",
@@ -9389,6 +9698,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Shore 2015 Trial HSC (Q22d)",
@@ -9417,6 +9727,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Shore 2015 Trial HSC (Q23a)",
@@ -9437,6 +9748,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Shore 2015 Trial HSC (Q23b)",
@@ -9465,6 +9777,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-5",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Shore 2015 Trial HSC (Q23c)",
@@ -9493,6 +9806,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Shore 2015 Trial HSC (Q24a)",
@@ -9513,6 +9827,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Shore 2015 Trial HSC (Q24b)",
@@ -9533,6 +9848,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore15-6",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Shore 2015 Trial HSC (Q24c)",
@@ -9553,6 +9869,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore15-6",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Shore 2015 Trial HSC (Q24d)",
@@ -9581,6 +9898,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore19-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Operations",
         "source":  "Shore 2019 Trial HSC (Q21a)",
@@ -9601,6 +9919,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Shore 2019 Trial HSC (Q21b)",
@@ -9629,6 +9948,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Shore 2019 Trial HSC (Q21c)",
@@ -9657,6 +9977,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore19-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Shore 2019 Trial HSC (Q22a)",
@@ -9677,6 +9998,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Shore 2019 Trial HSC (Q22b)",
@@ -9705,6 +10027,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Shore 2019 Trial HSC (Q22c)",
@@ -9733,6 +10056,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore19-3",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Human Resources",
         "source":  "Shore 2019 Trial HSC (Q23a)",
@@ -9753,6 +10077,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-5",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Shore 2019 Trial HSC (Q23b)",
@@ -9781,6 +10106,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore19-6",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Shore 2019 Trial HSC (Q23c)",
@@ -9809,6 +10135,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore19-4",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Shore 2019 Trial HSC (Q24a)",
@@ -9829,6 +10156,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore19-5",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Shore 2019 Trial HSC (Q24b)",
@@ -9849,6 +10177,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-6-shore19-1",
+        "criteriaSource": "derived",
         "marks":  6,
         "topic":  "Marketing",
         "source":  "Shore 2019 Trial HSC (Q24c)",
@@ -9873,6 +10202,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-shore20-1",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Operations",
         "source":  "Shore 2020 Trial HSC (Q21a)",
@@ -9889,6 +10219,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore20-1",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Operations",
         "source":  "Shore 2020 Trial HSC (Q21b)",
@@ -9917,6 +10248,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-shore20-1",
+        "criteriaSource": "derived",
         "marks":  5,
         "topic":  "Operations",
         "source":  "Shore 2020 Trial HSC (Q21c)",
@@ -9949,6 +10281,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore20-1",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Finance",
         "source":  "Shore 2020 Trial HSC (Q22a)",
@@ -9969,6 +10302,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-3-shore20-1",
+        "criteriaSource": "official",
         "marks":  3,
         "topic":  "Finance",
         "source":  "Shore 2020 Trial HSC (Q22b)",
@@ -9993,6 +10327,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore20-2",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Finance",
         "source":  "Shore 2020 Trial HSC (Q22c)",
@@ -10021,6 +10356,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-1-shore20-2",
+        "criteriaSource": "official",
         "marks":  1,
         "topic":  "Human Resources",
         "source":  "Shore 2020 Trial HSC (Q23a)",
@@ -10037,6 +10373,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore20-3",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Human Resources",
         "source":  "Shore 2020 Trial HSC (Q23b)",
@@ -10065,6 +10402,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-shore20-2",
+        "criteriaSource": "official",
         "marks":  5,
         "topic":  "Human Resources",
         "source":  "Shore 2020 Trial HSC (Q23c)",
@@ -10097,6 +10435,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-2-shore20-2",
+        "criteriaSource": "official",
         "marks":  2,
         "topic":  "Marketing",
         "source":  "Shore 2020 Trial HSC (Q24a)",
@@ -10117,6 +10456,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-4-shore20-4",
+        "criteriaSource": "official",
         "marks":  4,
         "topic":  "Marketing",
         "source":  "Shore 2020 Trial HSC (Q24b)",
@@ -10145,6 +10485,7 @@ const QUESTIONS = {
     },
     {
         "id":  "bs-5-shore20-3",
+        "criteriaSource": "official",
         "marks":  5,
         "topic":  "Marketing",
         "source":  "Shore 2020 Trial HSC (Q24c)",

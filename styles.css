@@ -658,8 +658,26 @@ textarea#answer-input:focus {
 .result-section li { margin-bottom: 6px; line-height: 1.5; font-size: 0.92rem; }
 
 .result-section.criteria { border-left-color: var(--brand); }
-.result-section.criteria h4 { color: var(--brand); }
+.result-section.criteria h4 { color: var(--brand); display: flex; align-items: center; gap: 8px; }
 .result-section.criteria li strong { color: var(--ink); }
+.criteria-source-badge {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--ink-soft);
+}
+.criteria-source-badge.official {
+  color: var(--good);
+  border-color: var(--good);
+}
+.criteria-source-badge.derived {
+  color: var(--warn);
+  border-color: var(--warn);
+}
 .result-section.strengths { border-left-color: var(--good); }
 .result-section.strengths h4 { color: var(--good); }
 .result-section.gaps { border-left-color: var(--bad); }
