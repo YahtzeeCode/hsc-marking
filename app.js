@@ -16,6 +16,15 @@ const PROVIDERS = {
     helpUrl: "https://console.anthropic.com/settings/keys",
     helpLabel: "console.anthropic.com",
     storageKey: "hsc_key_claude",
+    modelStorageKey: "hsc_model_claude",
+    defaultModel: "claude-opus-5",
+    // Kept short on purpose — Anthropic model IDs are stable for a long time.
+    // "Custom" always exists below so this list never has to be complete.
+    models: [
+      { id: "claude-opus-5", label: "Claude Opus 5 (most capable, default)" },
+      { id: "claude-sonnet-5", label: "Claude Sonnet 5 (faster, cheaper)" },
+      { id: "claude-haiku-4-5", label: "Claude Haiku 4.5 (fastest, cheapest)" },
+    ],
   },
   gemini: {
     label: "Gemini (Google)",
@@ -23,9 +32,20 @@ const PROVIDERS = {
     helpUrl: "https://aistudio.google.com/apikey",
     helpLabel: "aistudio.google.com",
     storageKey: "hsc_key_gemini",
+    modelStorageKey: "hsc_model_gemini",
+    defaultModel: "gemini-3.6-flash",
+    // Google retires "flash" model names every few months — if marking
+    // starts failing with a "model not found / no longer available" error,
+    // pick a newer one here (or paste an exact ID via "Custom").
+    models: [
+      { id: "gemini-3.6-flash", label: "Gemini 3.6 Flash (default)" },
+      { id: "gemini-3.5-flash-lite", label: "Gemini 3.5 Flash-Lite (fastest, cheapest)" },
+      { id: "gemini-2.5-flash", label: "Gemini 2.5 Flash (older)" },
+    ],
   },
 };
 const PROVIDER_STORAGE_KEY = "hsc_provider";
+const CUSTOM_MODEL_VALUE = "__custom__";
 
 const state = {
   subject: null,
@@ -331,6 +351,14 @@ function setApiKey(key, provider) {
   provider = provider || getProvider();
   localStorage.setItem(PROVIDERS[provider].storageKey, key);
 }
+function getModel(provider) {
+  provider = provider || getProvider();
+  return localStorage.getItem(PROVIDERS[provider].modelStorageKey) || PROVIDERS[provider].defaultModel;
+}
+function setModel(model, provider) {
+  provider = provider || getProvider();
+  localStorage.setItem(PROVIDERS[provider].modelStorageKey, model);
+}
 
 async function gradeAnswer(q, studentAnswer) {
   const provider = getProvider();
@@ -339,7 +367,6 @@ async function gradeAnswer(q, studentAnswer) {
 }
 
 // ---- Claude (Anthropic) ----
-const CLAUDE_MODEL = "claude-opus-5";
 const CLAUDE_SCHEMA = {
   type: "object",
   properties: {
@@ -364,7 +391,7 @@ async function gradeWithClaude(q, studentAnswer) {
       "anthropic-dangerous-direct-browser-access": "true",
     },
     body: JSON.stringify({
-      model: CLAUDE_MODEL,
+      model: getModel("claude"),
       max_tokens: 1500,
       system: buildSystemPrompt(),
       messages: [{ role: "user", content: buildUserContent(q, studentAnswer) }],
@@ -383,7 +410,6 @@ async function gradeWithClaude(q, studentAnswer) {
 }
 
 // ---- Gemini (Google) ----
-const GEMINI_MODEL = "gemini-2.5-flash";
 const GEMINI_SCHEMA = {
   type: "OBJECT",
   properties: {
@@ -398,7 +424,7 @@ const GEMINI_SCHEMA = {
 
 async function gradeWithGemini(q, studentAnswer) {
   const apiKey = getApiKey("gemini");
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${getModel("gemini")}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -566,6 +592,36 @@ Store.onChange(() => {
 // ---------------------------------------------------------------------
 const settingsModal = document.getElementById("settings-modal");
 
+function populateModelSelect(provider) {
+  const sel = document.getElementById("model-select");
+  const customInput = document.getElementById("model-custom-input");
+  const current = getModel(provider);
+  const known = PROVIDERS[provider].models;
+  const isKnown = known.some((m) => m.id === current);
+
+  sel.innerHTML = "";
+  known.forEach((m) => {
+    const opt = document.createElement("option");
+    opt.value = m.id;
+    opt.textContent = m.label;
+    sel.appendChild(opt);
+  });
+  const customOpt = document.createElement("option");
+  customOpt.value = CUSTOM_MODEL_VALUE;
+  customOpt.textContent = "Custom (type exact model ID)…";
+  sel.appendChild(customOpt);
+
+  sel.value = isKnown ? current : CUSTOM_MODEL_VALUE;
+  customInput.style.display = isKnown ? "none" : "block";
+  customInput.value = isKnown ? "" : current;
+  customInput.placeholder = `Exact ${PROVIDERS[provider].label} model ID`;
+}
+
+document.getElementById("model-select").addEventListener("change", (e) => {
+  document.getElementById("model-custom-input").style.display =
+    e.target.value === CUSTOM_MODEL_VALUE ? "block" : "none";
+});
+
 function openSettingsModal() {
   const provider = getProvider();
   document.getElementById("provider-select").value = provider;
@@ -574,6 +630,7 @@ function openSettingsModal() {
   document.getElementById("provider-key-hint").innerHTML =
     `— get one at <a href="${PROVIDERS[provider].helpUrl}" target="_blank" rel="noopener">${PROVIDERS[provider].helpLabel}</a>`;
   document.getElementById("apikey-error").textContent = "";
+  populateModelSelect(provider);
   renderAccountSection();
   settingsModal.classList.add("active");
 }
@@ -587,6 +644,7 @@ document.getElementById("provider-select").addEventListener("change", (e) => {
   document.getElementById("apikey-input").placeholder = PROVIDERS[provider].placeholder;
   document.getElementById("provider-key-hint").innerHTML =
     `— get one at <a href="${PROVIDERS[provider].helpUrl}" target="_blank" rel="noopener">${PROVIDERS[provider].helpLabel}</a>`;
+  populateModelSelect(provider);
 });
 
 function renderAccountSection() {
@@ -622,8 +680,18 @@ document.getElementById("apikey-save-btn").addEventListener("click", () => {
     document.getElementById("apikey-error").textContent = "Please enter a key.";
     return;
   }
+  const modelSelectVal = document.getElementById("model-select").value;
+  const model =
+    modelSelectVal === CUSTOM_MODEL_VALUE
+      ? document.getElementById("model-custom-input").value.trim()
+      : modelSelectVal;
+  if (!model) {
+    document.getElementById("apikey-error").textContent = "Please enter a model ID.";
+    return;
+  }
   setProvider(provider);
   setApiKey(val, provider);
+  setModel(model, provider);
   closeSettingsModal();
   if (state.pendingAfterKeySave) {
     const cb = state.pendingAfterKeySave;

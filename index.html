@@ -165,11 +165,16 @@
   <div class="modal">
     <h3>Settings</h3>
 
-    <p class="modal-label">Marking model</p>
+    <p class="modal-label">Marking provider</p>
     <select id="provider-select">
       <option value="claude">Claude (Anthropic)</option>
       <option value="gemini">Gemini (Google)</option>
     </select>
+
+    <p class="modal-label" style="margin-top:16px;">Model</p>
+    <select id="model-select"></select>
+    <input type="text" id="model-custom-input" placeholder="Exact model ID, e.g. gemini-3.6-flash" style="display:none; margin-top:8px;">
+    <p class="modal-hint" id="model-hint" style="margin-top:6px;">Providers periodically retire old model names. If marking suddenly fails with a "model not found / no longer available" error, open this menu and pick a newer one (or paste the exact ID from the provider's docs under "Custom").</p>
 
     <p class="modal-label" style="margin-top:16px;">API key <span id="provider-key-hint"></span></p>
     <p class="modal-hint">Marking is done by calling the model's API directly from your browser. Your key is stored only in this browser's local storage and is sent only to the provider's API — never anywhere else.</p>
