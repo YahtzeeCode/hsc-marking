@@ -710,6 +710,21 @@ details.sample-answer .key-points {
 .history-stat .val { font-size: 1.3rem; font-weight: 800; color: var(--brand); }
 .history-stat .lbl { font-size: 0.72rem; color: var(--ink-soft); margin-top: 2px; }
 
+.retry-wrong-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.retry-wrong-row .modal-hint {
+  margin: 0;
+}
+#retry-wrong-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .history-row {
   display: flex;
   align-items: center;

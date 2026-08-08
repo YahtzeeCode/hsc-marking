@@ -603,6 +603,35 @@ document.getElementById("nav-history").addEventListener("click", () => {
 });
 document.getElementById("history-detail-back").addEventListener("click", () => showView("view-history"));
 
+// Returns the most recent attempt for each (subject, question) pair where that
+// most recent attempt lost at least one mark — i.e. questions worth revisiting.
+// If a question was later re-answered for full marks, it drops off this list.
+function wrongAttempts() {
+  const seen = new Set();
+  const result = [];
+  Store.attempts.forEach((a) => {
+    const key = a.subject + "::" + a.questionId;
+    if (seen.has(key)) return;
+    seen.add(key);
+    if (a.marks && a.marksAwarded < a.marks) result.push(a);
+  });
+  return result;
+}
+
+document.getElementById("retry-wrong-btn").addEventListener("click", () => {
+  const wrong = wrongAttempts();
+  if (wrong.length === 0) return;
+  const pick = wrong[Math.floor(Math.random() * wrong.length)];
+  const q = questionsFor(pick.subject, pick.marks).find((qq) => qq.id === pick.questionId);
+  if (!q) return;
+  state.subject = pick.subject;
+  state.marks = pick.marks;
+  state.question = q;
+  state.exhausted = false;
+  renderQuestion();
+  showView("view-question");
+});
+
 function renderHistory() {
   const attempts = Store.attempts;
   const statsEl = document.getElementById("history-stats");
@@ -617,6 +646,8 @@ function renderHistory() {
   if (attempts.length === 0) {
     statsEl.innerHTML = "";
     listEl.innerHTML = `<div class="empty-state"><p class="eyebrow">Nothing here yet</p><p>You haven't answered any questions yet.</p></div>`;
+    document.getElementById("retry-wrong-btn").disabled = true;
+    document.getElementById("retry-wrong-hint").textContent = "";
     return;
   }
 
@@ -631,6 +662,14 @@ function renderHistory() {
     <div class="history-stat"><div class="val">${avgPct}%</div><div class="lbl">Average score</div></div>
     <div class="history-stat"><div class="val">${fullMarks}</div><div class="lbl">Full-mark answers</div></div>
   `;
+
+  const wrong = wrongAttempts();
+  const retryBtn = document.getElementById("retry-wrong-btn");
+  const retryHint = document.getElementById("retry-wrong-hint");
+  retryBtn.disabled = wrong.length === 0;
+  retryHint.textContent = wrong.length === 0
+    ? "No wrong answers to revisit right now — nice."
+    : `${wrong.length} question${wrong.length === 1 ? "" : "s"} you lost marks on last time.`;
 
   listEl.innerHTML = "";
   attempts.forEach((a, idx) => {
