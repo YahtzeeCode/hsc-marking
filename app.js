@@ -49,6 +49,7 @@ const CUSTOM_MODEL_VALUE = "__custom__";
 
 const state = {
   subject: null,
+  topic: null,
   marks: null,
   mixed: false,
   question: null,
@@ -83,6 +84,11 @@ function updateCrumbs(viewId) {
     const subj = SUBJECTS.find((s) => s.id === state.subject);
     parts.push(subj ? subj.name : state.subject);
   }
+  const pastTopicSelect = viewId === "view-markers" || viewId === "view-question" ||
+    viewId === "view-result" || viewId === "view-loading";
+  if (pastTopicSelect) {
+    parts.push(state.topic || "All topics");
+  }
   if (viewId === "view-question" || viewId === "view-result" || viewId === "view-loading") {
     if (state.mixed) parts.push("Mixed practice");
     else if (state.marks) parts.push(`${state.marks} mark${state.marks > 1 ? "s" : ""}`);
@@ -115,8 +121,84 @@ function renderSubjects() {
 
 function openSubject(subjectId) {
   state.subject = subjectId;
+  state.topic = null;
   const subj = SUBJECTS.find((s) => s.id === subjectId);
+  document.getElementById("topic-subject-title").textContent = subj.name;
+  renderTopics();
+  showView("view-topics");
+}
+
+// ---------------------------------------------------------------------
+// Topic grid
+// ---------------------------------------------------------------------
+// Preferred display order (NESA syllabus order); anything not listed here
+// (e.g. a typo'd or one-off topic label from extracted papers) is appended
+// afterwards, alphabetically, rather than dropped.
+const TOPIC_ORDER = [
+  "Nature of Business",
+  "Business Management",
+  "Business Environment",
+  "Operations",
+  "Marketing",
+  "Finance",
+  "Human Resources",
+];
+
+function topicsFor(subjectId) {
+  const pool = QUESTIONS[subjectId] || [];
+  const counts = new Map();
+  pool.forEach((q) => {
+    const t = q.topic || "Other";
+    counts.set(t, (counts.get(t) || 0) + 1);
+  });
+  const names = Array.from(counts.keys()).sort((a, b) => {
+    const ia = TOPIC_ORDER.indexOf(a);
+    const ib = TOPIC_ORDER.indexOf(b);
+    if (ia !== -1 && ib !== -1) return ia - ib;
+    if (ia !== -1) return -1;
+    if (ib !== -1) return 1;
+    return a.localeCompare(b);
+  });
+  return names.map((name) => ({ name, count: counts.get(name) }));
+}
+
+function renderTopics() {
+  const grid = document.getElementById("topic-grid");
+  grid.innerHTML = "";
+  topicsFor(state.subject).forEach(({ name, count }) => {
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className = "marker-pill";
+    pill.innerHTML = `
+      <span>${name}</span>
+      <span class="count">${count}</span>
+    `;
+    pill.addEventListener("click", () => startTopic(name));
+    grid.appendChild(pill);
+  });
+}
+
+function startTopic(topic) {
+  state.topic = topic;
+  goToMarkers();
+}
+
+document.getElementById("topics-mixed-btn").addEventListener("click", () => {
+  state.topic = null;
+  goToMarkers();
+});
+
+document.getElementById("markers-back-btn").addEventListener("click", () => {
+  renderTopics();
+  showView("view-topics");
+});
+
+function goToMarkers() {
+  const subj = SUBJECTS.find((s) => s.id === state.subject);
   document.getElementById("marker-subject-title").textContent = subj.name;
+  document.getElementById("marker-page-sub").textContent = state.topic
+    ? `${state.topic} — start a mixed session, or pick a specific marker value below.`
+    : "All topics — start a mixed session, or pick a specific marker value below.";
   renderMarkers();
   showView("view-markers");
 }
@@ -129,11 +211,15 @@ function questionsFor(subjectId, marks) {
   return pool.filter((q) => q.marks === marks);
 }
 
+function filterByTopic(pool, topic) {
+  return topic ? pool.filter((q) => q.topic === topic) : pool;
+}
+
 function renderMarkers() {
   const grid = document.getElementById("marker-grid");
   grid.innerHTML = "";
   for (let m = 1; m <= 6; m++) {
-    const count = questionsFor(state.subject, m).length;
+    const count = filterByTopic(questionsFor(state.subject, m), state.topic).length;
     const pill = document.createElement("button");
     pill.type = "button";
     pill.className = "marker-pill" + (count === 0 ? " empty" : "");
@@ -173,11 +259,12 @@ document.getElementById("empty-back-btn").addEventListener("click", () => showVi
 // Question selection & rendering (no-repeat, backed by Store history)
 // ---------------------------------------------------------------------
 function loadNewQuestion() {
-  const pool = state.mixed
+  const rawPool = state.mixed
     ? (QUESTIONS[state.subject] || [])
     : questionsFor(state.subject, state.marks);
+  const pool = filterByTopic(rawPool, state.topic);
   if (pool.length === 0) {
-    document.getElementById("empty-message").textContent = "No questions available yet for this marker value.";
+    document.getElementById("empty-message").textContent = "No questions available yet for this combination.";
     showView("view-empty");
     return;
   }
@@ -637,6 +724,7 @@ document.getElementById("retry-wrong-btn").addEventListener("click", () => {
   const q = questionsFor(pick.subject, pick.marks).find((qq) => qq.id === pick.questionId);
   if (!q) return;
   state.subject = pick.subject;
+  state.topic = null;
   state.marks = pick.marks;
   state.mixed = false;
   state.question = q;
