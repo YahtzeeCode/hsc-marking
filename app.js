@@ -705,8 +705,87 @@ effectiveness of human resource management
 - indicators: corporate culture; benchmarking key variables; changes in staff turnover; absenteeism; accidents; levels of disputation; worker satisfaction`,
 };
 
+// Official NESA "Glossary of Key Words" (nsw.gov.au/education-and-training/nesa/hsc/student-guide/glossary,
+// cross-checked against a second independent source) — defines exactly what
+// each command word in a question is asking a student to actually do, e.g.
+// "Discuss" requires points for AND against, "Evaluate" requires a judgement
+// based on criteria. Used to tell the marking AI what structural/cognitive
+// demand the question's command word creates, on top of the content criteria.
+const NESA_KEYWORDS = {
+  "account for": "State reasons for, report on.",
+  "give an account of": "Narrate a series of events or transactions.",
+  "analyse": "Identify components and the relationship between them; draw out and relate implications.",
+  "apply": "Use, utilise, employ in a particular situation.",
+  "appreciate": "Make a judgement about the value of.",
+  "assess": "Make a judgement of value, quality, outcomes, results or size.",
+  "calculate": "Ascertain/determine from given facts, figures or information.",
+  "clarify": "Make clear or plain.",
+  "classify": "Arrange or include in classes/categories.",
+  "compare": "Show how things are similar or different.",
+  "construct": "Make; build; put together items or arguments.",
+  "contrast": "Show how things are different or opposite.",
+  "critically analyse": "Add a degree or level of accuracy, depth, knowledge, understanding, logic, questioning, reflection and quality to the analysis.",
+  "critically evaluate": "Add a degree or level of accuracy, depth, knowledge, understanding, logic, questioning, reflection and quality to the evaluation.",
+  "deduce": "Draw conclusions.",
+  "define": "State meaning and identify essential qualities.",
+  "demonstrate": "Show by example.",
+  "describe": "Provide characteristics and features.",
+  "discuss": "Identify issues and provide points for and/or against.",
+  "distinguish": "Recognise or note/indicate as being distinct or different from; note differences between.",
+  "evaluate": "Make a judgement based on criteria; determine the value of.",
+  "examine": "Inquire into.",
+  "explain": "Relate cause and effect; make the relationships between things evident; provide why and/or how.",
+  "extract": "Choose relevant and/or appropriate details.",
+  "extrapolate": "Infer from what is known.",
+  "identify": "Recognise and name.",
+  "interpret": "Draw meaning from.",
+  "investigate": "Plan, inquire into and draw conclusions about.",
+  "justify": "Support an argument or conclusion.",
+  "outline": "Sketch in general terms; indicate the main features of.",
+  "predict": "Suggest what may happen based on available information.",
+  "propose": "Put forward (e.g. a point of view, idea, argument, suggestion) for consideration or action.",
+  "recall": "Present remembered ideas, facts or experiences.",
+  "recommend": "Provide reasons in favour.",
+  "recount": "Retell a series of events.",
+  "summarise": "Express, concisely, the relevant details.",
+  "synthesise": "Putting together various elements to make a whole.",
+};
+
+// Finds which official NESA command words actually appear in this question's
+// text (matches multi-word terms first so e.g. "critically analyse" isn't
+// also double-matched as a bare "analyse").
+function findKeywordsInQuestion(questionText) {
+  if (!questionText) return [];
+  const found = [];
+  const lower = questionText.toLowerCase();
+  const terms = Object.keys(NESA_KEYWORDS).sort((a, b) => b.length - a.length);
+  const covered = [];
+  terms.forEach((term) => {
+    const re = new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+    const m = re.exec(lower);
+    if (!m) return;
+    const start = m.index, end = m.index + term.length;
+    if (covered.some(([s, e]) => start < e && end > s)) return; // already covered by a longer term
+    covered.push([start, end]);
+    found.push({ term, definition: NESA_KEYWORDS[term] });
+  });
+  return found;
+}
+
 function buildSystemPrompt() {
-  return `You are an experienced, fair but rigorous HSC Business Studies marker working for the NSW Education Standards Authority (NESA). You mark strictly against the official marking criteria provided, using the key points and sample answer only as a guide to what a full-mark response looks like. Award the mark band that best matches what the student's answer actually demonstrates — do not give credit for content, terminology, or structure the answer does not contain, and do not be swayed by length or confident tone alone. Be specific and reference the student's own words when explaining strengths and gaps. Keep feedback constructive, concise and exam-focused. You are also given the official NESA syllabus dot points for this question's topic — use them to judge whether the student's content is genuinely within the syllabus (e.g. don't penalise a correct answer for using different but syllabus-valid terminology, and don't award credit for content that's outside the syllabus for this topic even if it sounds plausible). Always respond with valid JSON only, matching the requested schema exactly — no markdown, no commentary outside the JSON.`;
+  return `You are an experienced, fair but rigorous HSC Business Studies marker working for the NSW Education Standards Authority (NESA). You mark strictly against the official marking criteria provided, using the key points and sample answer only as a guide to what a full-mark response looks like. Award the mark band that best matches what the student's answer actually demonstrates — do not give credit for content, terminology, or structure the answer does not contain, and do not be swayed by length or confident tone alone. Be specific and reference the student's own words when explaining strengths and gaps. Keep feedback constructive, concise and exam-focused.
+
+THE MARKING CRITERIA BANDS PROVIDED FOR THIS SPECIFIC QUESTION ARE ALWAYS THE PRIMARY AND FINAL AUTHORITY for what mark to award — they take precedence over everything below. The syllabus content, command-word definitions, and key-term/stimulus guidance below are secondary lenses to help you judge and explain marks_lost/improvement_tips more precisely — they are not additional scoring criteria layered on top, and must never cause you to award a lower band than the criteria's own descriptor for what the student actually demonstrated. Only let them pull a mark down when the specific band descriptor you're applying already implies that structural expectation (e.g. a top band descriptor that itself says "makes a judgement" is not satisfied by a response with no judgement) — don't invent a new requirement the criteria never asked for.
+
+You are also given the official NESA syllabus dot points for this question's topic — use them to judge whether the student's content is genuinely within the syllabus (e.g. don't penalise a correct answer for using different but syllabus-valid terminology, and don't award credit for content that's outside the syllabus for this topic even if it sounds plausible).
+
+If the question contains an official NESA command word (e.g. Explain, Analyse, Discuss, Evaluate), you're given that word's official glossary definition — use it to interpret what the criteria bands mean in context (e.g. a band that says "provides characteristics and features" for a "Describe" question, or "makes a judgement" for an "Evaluate" question), not as a separate checklist. For example: "Discuss" implies points for AND against; "Evaluate"/"Assess"/"Justify" imply an actual judgement or conclusion; "Explain" implies cause-and-effect reasoning ("because"/"which means"/"leading to"); "Analyse" implies identifying components and relating the implications between them. Only treat a missing structural element as a reason to withhold marks when the actual band descriptor for this question calls for it, and raise it in marks_lost when relevant.
+
+For any question worth 2 or more marks, a strong answer ideally defines the key term(s) in the question (e.g. define "gearing" before discussing it) — this is exam-technique guidance, not a scoring requirement: only reflect it in the mark itself if the criteria band already expects that level of precision, but always feel free to note its absence in improvement_tips when a student jumps straight into discussion without establishing what the term means.
+
+If the question explicitly asks the student to reference the stimulus/case study (e.g. "with reference to the stimulus", "for this business", "using the information provided"), check whether the answer actually engages with specific details from the stimulus (figures, the business's name, scenario specifics) rather than answering in generic terms that could apply to any business. Only let this affect the mark itself when the criteria band you're applying expects stimulus integration (several do, e.g. "with effective integration of at least two pieces of stimulus data") — otherwise raise a generic, non-stimulus-engaged answer in marks_lost or improvement_tips as feedback rather than silently marking it down.
+
+Always respond with valid JSON only, matching the requested schema exactly — no markdown, no commentary outside the JSON.`;
 }
 
 function buildCriteriaText(q) {
@@ -717,10 +796,14 @@ function buildCriteriaText(q) {
 
 function buildUserContent(q, studentAnswer) {
   const syllabus = SYLLABUS_CONTENT[q.topic];
+  const keywords = findKeywordsInQuestion(q.question);
+  const keywordsBlock = keywords.length
+    ? `\nCOMMAND WORD(S) IN THIS QUESTION (official NESA glossary definitions):\n${keywords.map((k) => `- "${k.term}": ${k.definition}`).join("\n")}\n`
+    : "";
   return `Mark the following HSC Business Studies response.
 
 TOPIC: ${q.topic || "Business Studies"}
-${syllabus ? `\nNESA SYLLABUS CONTENT FOR THIS TOPIC (use this to judge what is/isn't in scope):\n${syllabus}\n` : ""}
+${syllabus ? `\nNESA SYLLABUS CONTENT FOR THIS TOPIC (use this to judge what is/isn't in scope):\n${syllabus}\n` : ""}${keywordsBlock}
 QUESTION (worth ${q.marks} mark${q.marks > 1 ? "s" : ""}):
 ${q.question}
 
