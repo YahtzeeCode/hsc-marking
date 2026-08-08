@@ -5,10 +5,13 @@ marker value (1–6), answer the question, and get it marked instantly against t
 HSC marking criteria — with feedback on what you did well, why you lost marks, how to
 improve, and a full-mark sample answer.
 
-Currently live: **Business Studies** (115 questions across all 6 marker values, sourced
-from real CSSA / Penrith / Barker / Cherrybrook Tech / Knox Trial HSC papers, plus a
-handful written in the same NESA marking style to round out thin marker values).
-Economics and English Standard are stubbed in and ready to fill in later.
+Currently live: **Business Studies** (333 questions across all 6 marker values, sourced
+from real CSSA / Penrith / Barker / Cherrybrook Tech / Knox / Hills Grammar / Pymble /
+Riverview / Shore / Sydney Boys / Sydney Tech Trial HSC papers, plus a handful written
+in the same NESA marking style to round out thin marker values). Financial-statement
+and data-table stimulus (balance sheets, income statements, ratio tables, etc.) render
+as real formatted tables, not flattened text. Economics and English Standard are
+stubbed in and ready to fill in later.
 
 ## Running it
 
@@ -52,6 +55,25 @@ All questions live in `data/questions.js` as a plain JS array, one object per qu
   sampleAnswer: "A full-mark sample answer."
 }
 ```
+
+`stimulus` can also be a structured object instead of plain text, for questions with a
+data table (balance sheet, income statement, ratio table, budget, etc.) — it renders as
+a real HTML table rather than flattened text:
+
+```js
+stimulus: {
+  blocks: [
+    { type: "text", text: "Some Business Pty Ltd Income Statement" },
+    { type: "table", title: "Table", columns: ["", "$", "$"], rows: [
+      ["Sales", "", "350 000"],
+      ["Net profit", "", "24 000"]
+    ] }
+  ]
+}
+```
+
+`blocks` can mix any number of `text` and `table` entries in order (e.g. narrative
+before/after a table, or two tables for a two-year comparison).
 
 Add new objects to the `"business-studies"` array (or create `"economics"` /
 `"english-standard"` arrays and flip `enabled: true` for that subject in `app.js`).

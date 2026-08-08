@@ -374,6 +374,47 @@ p.page-sub {
   margin-bottom: 6px;
   display: block;
 }
+.stim-text-block {
+  margin: 0 0 10px;
+  white-space: pre-wrap;
+}
+.stim-text-block:last-child {
+  margin-bottom: 0;
+}
+.stim-table-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+table.stim-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: normal;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  margin: 4px 0 16px;
+}
+table.stim-table:last-child {
+  margin-bottom: 0;
+}
+table.stim-table th,
+table.stim-table td {
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  text-align: left;
+}
+table.stim-table th {
+  background: var(--panel);
+  font-weight: 700;
+  color: var(--ink);
+}
+table.stim-table td:not(:first-child),
+table.stim-table th:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+table.stim-table tbody tr:nth-child(even) {
+  background: var(--panel);
+}
 
 .question-text {
   font-family: var(--serif);

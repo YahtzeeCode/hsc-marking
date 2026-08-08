@@ -194,7 +194,7 @@ function renderQuestion() {
   const stimBox = document.getElementById("stimulus-box");
   if (q.stimulus) {
     stimBox.style.display = "block";
-    document.getElementById("stimulus-text").textContent = q.stimulus;
+    renderStimulusInto(document.getElementById("stimulus-text"), q.stimulus);
   } else {
     stimBox.style.display = "none";
   }
@@ -203,6 +203,81 @@ function renderQuestion() {
   ta.value = "";
   updateWordCount();
   ta.focus();
+}
+
+// Stimulus can be a plain string (old format), or a structured object for
+// stimulus that includes data tables (balance sheets, income statements,
+// ratio tables, etc):
+//   { blocks: [
+//       { type: "text", text: "..." },
+//       { type: "table", title: "optional caption", columns: ["", "$", "$"],
+//         rows: [ ["Sales", "", "350 000"], ["Opening stock", "20 000", ""] ] }
+//   ] }
+// Blocks render in order; a question can mix narrative text and one or more
+// tables. Plain-string stimulus keeps working unchanged.
+function renderStimulusInto(container, stimulus) {
+  container.innerHTML = "";
+  if (!stimulus) return;
+  if (typeof stimulus === "string") {
+    container.textContent = stimulus;
+    return;
+  }
+  (stimulus.blocks || []).forEach((b) => {
+    if (b.type === "table") {
+      if (b.title) {
+        const p = document.createElement("p");
+        p.className = "stim-table-title";
+        p.textContent = b.title;
+        container.appendChild(p);
+      }
+      const table = document.createElement("table");
+      table.className = "stim-table";
+      if (b.columns && b.columns.some((c) => c)) {
+        const thead = document.createElement("thead");
+        const trh = document.createElement("tr");
+        b.columns.forEach((c) => {
+          const th = document.createElement("th");
+          th.textContent = c;
+          trh.appendChild(th);
+        });
+        thead.appendChild(trh);
+        table.appendChild(thead);
+      }
+      const tbody = document.createElement("tbody");
+      (b.rows || []).forEach((r) => {
+        const tr = document.createElement("tr");
+        r.forEach((cell) => {
+          const td = document.createElement("td");
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      container.appendChild(table);
+    } else {
+      const p = document.createElement("p");
+      p.className = "stim-text-block";
+      p.textContent = b.text;
+      container.appendChild(p);
+    }
+  });
+}
+
+// Flattens either stimulus format into plain text for the marking prompt.
+function stimulusToPlainText(stimulus) {
+  if (!stimulus) return "";
+  if (typeof stimulus === "string") return stimulus;
+  return (stimulus.blocks || [])
+    .map((b) => {
+      if (b.type === "table") {
+        const header = (b.columns || []).join(" | ");
+        const rows = (b.rows || []).map((r) => r.join(" | ")).join("\n");
+        return `${b.title ? b.title + "\n" : ""}${header}\n${rows}`.trim();
+      }
+      return b.text;
+    })
+    .join("\n\n");
 }
 
 const answerInput = document.getElementById("answer-input");
@@ -301,7 +376,7 @@ function buildUserContent(q, studentAnswer) {
 QUESTION (worth ${q.marks} mark${q.marks > 1 ? "s" : ""}):
 ${q.question}
 
-${q.stimulus ? `STIMULUS:\n${q.stimulus}\n\n` : ""}MARKING CRITERIA:
+${q.stimulus ? `STIMULUS:\n${stimulusToPlainText(q.stimulus)}\n\n` : ""}MARKING CRITERIA:
 ${buildCriteriaText(q)}
 
 KEY CONTENT POINTS ANSWERS COULD INCLUDE:
