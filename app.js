@@ -54,6 +54,42 @@ function setSelfMarkMode(on) {
   localStorage.setItem(SELFMARK_STORAGE_KEY, on ? "1" : "0");
 }
 
+// ---------------------------------------------------------------------
+// Skip queue — skipping a question does NOT count as answered (no history
+// attempt is recorded, so it stays eligible for normal random selection too),
+// it's just parked here so it can be deliberately revisited later via the
+// History tab. Cleared automatically once that question is actually answered
+// (through the skip queue or by encountering it normally again).
+// ---------------------------------------------------------------------
+const SKIP_QUEUE_STORAGE_KEY = "hsc_skip_queue";
+function getSkipQueue() {
+  try {
+    return JSON.parse(localStorage.getItem(SKIP_QUEUE_STORAGE_KEY) || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+function saveSkipQueue(queue) {
+  localStorage.setItem(SKIP_QUEUE_STORAGE_KEY, JSON.stringify(queue));
+}
+function addToSkipQueue(q, subject) {
+  const queue = getSkipQueue();
+  if (queue.some((item) => item.questionId === q.id && item.subject === subject)) return;
+  queue.unshift({
+    questionId: q.id,
+    subject,
+    marks: q.marks,
+    topic: q.topic || null,
+    questionText: q.question,
+    source: q.source || null,
+    timestamp: Date.now(),
+  });
+  saveSkipQueue(queue);
+}
+function removeFromSkipQueue(questionId, subject) {
+  saveSkipQueue(getSkipQueue().filter((item) => !(item.questionId === questionId && item.subject === subject)));
+}
+
 const state = {
   subject: null,
   topic: null,
@@ -256,6 +292,10 @@ document.getElementById("q-back-btn").addEventListener("click", () => {
   renderMarkers();
   showView("view-markers");
 });
+document.getElementById("q-skip-btn").addEventListener("click", () => {
+  addToSkipQueue(state.question, state.subject);
+  loadNewQuestion();
+});
 document.getElementById("change-marker-btn").addEventListener("click", () => {
   renderMarkers();
   showView("view-markers");
@@ -446,6 +486,7 @@ async function submitForMarking(answer) {
         marksLost: grade.marks_lost,
         improvementTips: grade.improvement_tips,
       });
+      removeFromSkipQueue(state.question.id, state.subject);
     } catch (e) {
       console.warn("Could not save this attempt to history.", e);
     }
@@ -516,6 +557,7 @@ function submitSelfMark(answer) {
         marksLost: [],
         improvementTips: [],
       }).catch((e) => console.warn("Could not save this attempt to history.", e));
+      removeFromSkipQueue(q.id, state.subject);
     });
     row.appendChild(btn);
   }
@@ -978,6 +1020,36 @@ document.getElementById("retry-wrong-btn").addEventListener("click", () => {
   showView("view-question");
 });
 
+function renderSkipQueueButton() {
+  const queue = getSkipQueue();
+  const btn = document.getElementById("skip-queue-btn");
+  const hint = document.getElementById("skip-queue-hint");
+  btn.disabled = queue.length === 0;
+  hint.textContent = queue.length === 0
+    ? "Nothing skipped right now."
+    : `${queue.length} question${queue.length === 1 ? "" : "s"} you skipped, not marked as answered.`;
+}
+
+document.getElementById("skip-queue-btn").addEventListener("click", () => {
+  const queue = getSkipQueue();
+  if (queue.length === 0) return;
+  const pick = queue[Math.floor(Math.random() * queue.length)];
+  const q = questionsFor(pick.subject, pick.marks).find((qq) => qq.id === pick.questionId);
+  if (!q) {
+    removeFromSkipQueue(pick.questionId, pick.subject);
+    renderSkipQueueButton();
+    return;
+  }
+  state.subject = pick.subject;
+  state.topic = null;
+  state.marks = pick.marks;
+  state.mixed = false;
+  state.question = q;
+  state.exhausted = false;
+  renderQuestion();
+  showView("view-question");
+});
+
 function renderHistory() {
   const attempts = Store.attempts;
   const statsEl = document.getElementById("history-stats");
@@ -988,6 +1060,8 @@ function renderHistory() {
     ? "Every question you've answered, synced across your devices — most recent first."
     : "Every question you've answered on this device, most recent first." +
       (Store.cloudEnabled ? " Sign in via Settings to sync across devices." : "");
+
+  renderSkipQueueButton();
 
   if (attempts.length === 0) {
     statsEl.innerHTML = "";

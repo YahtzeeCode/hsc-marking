@@ -110,6 +110,7 @@
           <span class="word-count" id="word-count">0 words</span>
           <div class="btn-row" style="margin-top:0;">
             <button class="btn btn-secondary" id="q-back-btn">Back</button>
+            <button class="btn btn-secondary" id="q-skip-btn">Skip question</button>
             <button class="btn btn-primary" id="submit-btn">Submit for marking</button>
           </div>
         </div>
@@ -220,6 +221,10 @@
         <div class="retry-wrong-row">
           <button class="btn btn-secondary" id="retry-wrong-btn" disabled>Attempt a wrong question</button>
           <span class="modal-hint" id="retry-wrong-hint"></span>
+        </div>
+        <div class="retry-wrong-row">
+          <button class="btn btn-secondary" id="skip-queue-btn" disabled>Attempt a skipped question</button>
+          <span class="modal-hint" id="skip-queue-hint"></span>
         </div>
         <div id="history-list"></div>
       </section>
