@@ -31,15 +31,11 @@
 //      read or write your own history.
 //   7. Reload the app, click the ⚙️ settings icon, and sign in with Google.
 
-const FIREBASE_CONFIG = null;
-
-/* Example — replace the block above with something like this:
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSy...",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789012",
-  appId: "1:123456789012:web:abcdef1234567890"
+  apiKey: "AIzaSyB2QgXIOr6xerSuzpy_ziuVtibm3pksSqQ",
+  authDomain: "hsc-marking.firebaseapp.com",
+  projectId: "hsc-marking",
+  storageBucket: "hsc-marking.firebasestorage.app",
+  messagingSenderId: "586811993626",
+  appId: "1:586811993626:web:da4bbba2e29c39ffc1eba3"
 };
-*/
