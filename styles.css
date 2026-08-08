@@ -1,91 +1,92 @@
 :root {
-  /* Light theme — derived from: Coffee Bean #704E2E, Dusty Olive #79745C /
-     #709176, Tea Green #E6F8B2, Lime Cream #CDE77F */
-  --bg: #ddd4b8;
-  --panel: #e9e2c9;
-  --panel-alt: #cfc6a5;
-  --ink: #221909;
-  --ink-soft: #56503c;
-  --border: #c3b897;
+  /* Light theme — "exam paper": cream paper, navy ink/accent (exam-board
+     blue), gold for achievement, red pen for corrections. */
+  --bg: #efe9da;
+  --panel: #f7f3e7;
+  --panel-alt: #e2dac2;
+  --ink: #1c2029;
+  --ink-soft: #63604f;
+  --border: #d7cdae;
 
-  --brand: #6b4a2a;
-  --brand-dark: #55391f;
-  --brand-soft: #eef3d6;
+  --brand: #1d3557;
+  --brand-dark: #142640;
+  --brand-soft: #e3e9f0;
   --on-brand: #ffffff;
 
-  --good: #4b7a5b;
-  --good-bg: #e5f1e6;
-  --warn: #9c7a1e;
-  --warn-bg: #fbf2d8;
-  --bad: #a24a38;
-  --bad-bg: #f8e8e2;
+  --good: #3f7d4c;
+  --good-bg: #e3efe4;
+  --warn: #a67c1b;
+  --warn-bg: #f5ecd3;
+  --bad: #a6291f;
+  --bad-bg: #f3e1de;
 
-  --radius: 10px;
-  --shadow: 0 1px 2px rgba(40, 30, 10, 0.04);
-  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(30, 24, 10, 0.05);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #16120c;
-    --panel: #1f1911;
-    --panel-alt: #1a1610;
-    --ink: #f2edde;
-    --ink-soft: #aca48c;
-    --border: #362c1d;
+    --bg: #12151c;
+    --panel: #1a1f2a;
+    --panel-alt: #141821;
+    --ink: #ece7d6;
+    --ink-soft: #9a9788;
+    --border: #2b3040;
 
-    --brand: #d3ea8c;
-    --brand-dark: #c3dd72;
-    --brand-soft: #2c3420;
-    --on-brand: #1e2a0e;
+    --brand: #d4af37;
+    --brand-dark: #c09a28;
+    --brand-soft: #322a15;
+    --on-brand: #1c1608;
 
-    --good: #86bb90;
-    --good-bg: #1f2e22;
-    --warn: #e2c46c;
-    --warn-bg: #332912;
-    --bad: #d08876;
-    --bad-bg: #33211b;
+    --good: #7fb48a;
+    --good-bg: #1e2b22;
+    --warn: #e0b65c;
+    --warn-bg: #33280f;
+    --bad: #e0776a;
+    --bad-bg: #33201b;
 
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #16120c;
-  --panel: #1f1911;
-  --panel-alt: #1a1610;
-  --ink: #f2edde;
-  --ink-soft: #aca48c;
-  --border: #362c1d;
-  --brand: #d3ea8c;
-  --brand-dark: #c3dd72;
-  --brand-soft: #2c3420;
-  --on-brand: #1e2a0e;
-  --good: #86bb90;
-  --good-bg: #1f2e22;
-  --warn: #e2c46c;
-  --warn-bg: #332912;
-  --bad: #d08876;
-  --bad-bg: #33211b;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --bg: #12151c;
+  --panel: #1a1f2a;
+  --panel-alt: #141821;
+  --ink: #ece7d6;
+  --ink-soft: #9a9788;
+  --border: #2b3040;
+  --brand: #d4af37;
+  --brand-dark: #c09a28;
+  --brand-soft: #322a15;
+  --on-brand: #1c1608;
+  --good: #7fb48a;
+  --good-bg: #1e2b22;
+  --warn: #e0b65c;
+  --warn-bg: #33280f;
+  --bad: #e0776a;
+  --bad-bg: #33201b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 :root[data-theme="light"] {
-  --bg: #ddd4b8;
-  --panel: #e9e2c9;
-  --panel-alt: #cfc6a5;
-  --ink: #221909;
-  --ink-soft: #56503c;
-  --border: #c3b897;
-  --brand: #6b4a2a;
-  --brand-dark: #55391f;
-  --brand-soft: #eef3d6;
+  --bg: #efe9da;
+  --panel: #f7f3e7;
+  --panel-alt: #e2dac2;
+  --ink: #1c2029;
+  --ink-soft: #63604f;
+  --border: #d7cdae;
+  --brand: #1d3557;
+  --brand-dark: #142640;
+  --brand-soft: #e3e9f0;
   --on-brand: #ffffff;
-  --good: #4b7a5b;
-  --good-bg: #e5f1e6;
-  --warn: #9c7a1e;
-  --warn-bg: #fbf2d8;
-  --bad: #a24a38;
-  --bad-bg: #f8e8e2;
-  --shadow: 0 1px 2px rgba(40, 30, 10, 0.04);
+  --good: #3f7d4c;
+  --good-bg: #e3efe4;
+  --warn: #a67c1b;
+  --warn-bg: #f5ecd3;
+  --bad: #a6291f;
+  --bad-bg: #f3e1de;
+  --shadow: 0 1px 2px rgba(30, 24, 10, 0.05);
 }
 
 * { box-sizing: border-box; }
@@ -235,10 +236,11 @@ main {
   margin: 0 0 6px;
 }
 h1.page-title {
-  font-size: 1.5rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
   font-weight: 700;
   margin: 0 0 6px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
 }
 p.page-sub {
   color: var(--ink-soft);
@@ -280,7 +282,7 @@ p.page-sub {
   letter-spacing: 0.01em;
   margin-bottom: 12px;
 }
-.subject-card h3 { margin: 0 0 4px; font-size: 1.02rem; font-weight: 700; }
+.subject-card h3 { font-family: var(--serif); margin: 0 0 4px; font-size: 1.05rem; font-weight: 700; }
 .subject-card p { margin: 0; color: var(--ink-soft); font-size: 0.85rem; }
 .badge {
   display: inline-block;
@@ -359,8 +361,9 @@ p.page-sub {
   padding: 16px 18px;
   margin-bottom: 18px;
   white-space: pre-wrap;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-family: var(--serif);
+  font-size: 0.94rem;
+  line-height: 1.6;
 }
 .stimulus-box .stim-label {
   font-size: 0.68rem;
@@ -373,11 +376,11 @@ p.page-sub {
 }
 
 .question-text {
-  font-size: 1.12rem;
+  font-family: var(--serif);
+  font-size: 1.2rem;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.48;
   margin: 0 0 18px;
-  letter-spacing: -0.005em;
 }
 
 textarea#answer-input {
