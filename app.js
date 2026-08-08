@@ -1074,6 +1074,9 @@ document.getElementById("nav-history").addEventListener("click", () => {
   showView("view-history");
 });
 document.getElementById("history-detail-back").addEventListener("click", () => showView("view-history"));
+document.getElementById("history-detail-redo-btn").addEventListener("click", () => {
+  if (state.historyDetail) redoAttemptQuestion(state.historyDetail);
+});
 
 // Returns the most recent attempt for each (subject, question) pair where that
 // most recent attempt lost at least one mark — i.e. questions worth revisiting.
@@ -1188,14 +1191,35 @@ function renderHistory() {
         <div class="hr-q"></div>
         <div class="hr-meta">${a.topic ? a.topic + " • " : ""}${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
       </div>
+      <button class="btn btn-secondary hr-redo-btn" type="button">Redo</button>
     `;
     row.querySelector(".hr-q").textContent = a.questionText;
+    row.querySelector(".hr-redo-btn").addEventListener("click", (e) => {
+      e.stopPropagation();
+      redoAttemptQuestion(a);
+    });
     row.addEventListener("click", () => openHistoryDetail(a));
     listEl.appendChild(row);
   });
 }
 
+// Jumps straight into a fresh attempt at the exact question a past attempt
+// was for (used by both the History row "Redo" button and the detail view).
+function redoAttemptQuestion(a) {
+  const q = (QUESTIONS[a.subject] || []).find((qq) => qq.id === a.questionId);
+  if (!q) return;
+  state.subject = a.subject;
+  state.topic = null;
+  state.marks = a.marks;
+  state.mixed = false;
+  state.question = q;
+  state.exhausted = false;
+  renderQuestion();
+  showView("view-question");
+}
+
 function openHistoryDetail(a) {
+  state.historyDetail = a;
   document.getElementById("hd-marks-pill").textContent = `${a.marksAwarded}/${a.marks}`;
   document.getElementById("hd-topic-pill").textContent = a.topic || "Business Studies";
   document.getElementById("hd-source-pill").textContent = a.source || "Original question";

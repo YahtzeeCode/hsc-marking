@@ -896,6 +896,11 @@ div.sample-answer .modal-label {
   text-overflow: ellipsis;
 }
 .history-row .hr-meta { font-size: 0.76rem; color: var(--ink-soft); margin-top: 3px; }
+.history-row .hr-redo-btn {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  font-size: 0.78rem;
+}
 
 /* ---- responsive: collapse sidebar to a top bar ---- */
 @media (max-width: 760px) {
