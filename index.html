@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSC Marking Practice</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand" id="brand-home">
+    <div class="logo">📘</div>
+    <span>HSC Marking Practice</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:10px;">
+    <div class="crumbs" id="crumbs"></div>
+    <button class="icon-btn" id="history-btn" title="Question history">🕘</button>
+    <button class="icon-btn" id="settings-btn" title="Settings">⚙️</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME: subject selection -->
+  <section class="view active" id="view-home">
+    <h1 class="page-title">Pick a subject</h1>
+    <p class="page-sub">Choose a subject to start practising HSC exam-style questions, marked instantly against the official criteria.</p>
+    <div class="subject-grid" id="subject-grid"></div>
+  </section>
+
+  <!-- MARKER SELECT -->
+  <section class="view" id="view-markers">
+    <h1 class="page-title" id="marker-subject-title">Business Studies</h1>
+    <p class="page-sub">Pick how many marks the question is worth.</p>
+    <div class="marker-grid" id="marker-grid"></div>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="view" id="view-question">
+    <div class="q-meta">
+      <span class="pill marks" id="q-marks-pill"></span>
+      <span class="pill topic" id="q-topic-pill"></span>
+    </div>
+    <div class="repeat-banner" id="repeat-banner" style="display:none;">🔁 You've answered every question at this marker value — here's one to try again.</div>
+    <div class="stimulus-box" id="stimulus-box" style="display:none;">
+      <span class="stim-label">Stimulus</span>
+      <div id="stimulus-text"></div>
+    </div>
+    <p class="question-text" id="question-text"></p>
+    <textarea id="answer-input" placeholder="Type your answer here..."></textarea>
+    <div class="q-footer">
+      <span class="word-count" id="word-count">0 words</span>
+      <div class="btn-row" style="margin-top:0;">
+        <button class="btn btn-secondary" id="q-back-btn">← Back</button>
+        <button class="btn btn-primary" id="submit-btn">Submit for marking</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOADING -->
+  <section class="view" id="view-loading">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p>Marking your answer against the criteria…</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="view" id="view-result">
+    <div class="score-banner">
+      <div class="score-circle" id="score-circle">0/0</div>
+      <div class="score-verdict"><strong>Verdict:</strong> <span id="verdict-text"></span></div>
+    </div>
+
+    <div class="result-section strengths">
+      <h4>✅ What you did well</h4>
+      <ul id="strengths-list"></ul>
+    </div>
+
+    <div class="result-section gaps">
+      <h4>⚠️ Why you lost marks</h4>
+      <ul id="gaps-list"></ul>
+    </div>
+
+    <div class="result-section tips">
+      <h4>💡 How to improve</h4>
+      <ul id="tips-list"></ul>
+    </div>
+
+    <details class="sample-answer">
+      <summary>📄 View sample full-mark answer</summary>
+      <div class="sample-body" id="sample-answer-text"></div>
+      <div class="key-points" id="key-points-text"></div>
+    </details>
+
+    <div class="your-answer-box">
+      <span class="label">Your answer</span>
+      <div id="your-answer-text"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="redo-btn">↺ Redo this question</button>
+      <button class="btn btn-primary" id="next-btn">Next question →</button>
+      <button class="btn btn-secondary" id="change-marker-btn">Change marker value</button>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="view" id="view-history">
+    <h1 class="page-title">Your history</h1>
+    <p class="page-sub" id="history-sub">Every question you've answered, most recent first.</p>
+    <div class="history-stats" id="history-stats"></div>
+    <div id="history-list"></div>
+  </section>
+
+  <!-- HISTORY DETAIL -->
+  <section class="view" id="view-history-detail">
+    <button class="btn btn-secondary" id="history-detail-back">← Back to history</button>
+    <div style="height:18px;"></div>
+    <div class="q-meta">
+      <span class="pill marks" id="hd-marks-pill"></span>
+      <span class="pill topic" id="hd-topic-pill"></span>
+      <span class="pill" id="hd-date-pill"></span>
+    </div>
+    <p class="question-text" id="hd-question-text"></p>
+
+    <div class="score-banner">
+      <div class="score-circle" id="hd-score-circle">0/0</div>
+      <div class="score-verdict"><strong>Verdict:</strong> <span id="hd-verdict-text"></span></div>
+    </div>
+    <div class="result-section strengths">
+      <h4>✅ What you did well</h4>
+      <ul id="hd-strengths-list"></ul>
+    </div>
+    <div class="result-section gaps">
+      <h4>⚠️ Why you lost marks</h4>
+      <ul id="hd-gaps-list"></ul>
+    </div>
+    <div class="result-section tips">
+      <h4>💡 How to improve</h4>
+      <ul id="hd-tips-list"></ul>
+    </div>
+    <div class="your-answer-box">
+      <span class="label">Your answer</span>
+      <div id="hd-your-answer-text"></div>
+    </div>
+  </section>
+
+  <!-- EMPTY / ERROR -->
+  <section class="view" id="view-empty">
+    <div class="empty-state">
+      <span class="emoji">🚧</span>
+      <p id="empty-message">No questions available yet for this selection.</p>
+      <button class="btn btn-secondary" id="empty-back-btn">← Go back</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">Business Studies question bank sourced from CSSA / Penrith / Barker / Cherrybrook / Knox Trial HSC papers • Marking powered by your choice of AI model</footer>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-backdrop" id="settings-modal">
+  <div class="modal">
+    <h3>Settings</h3>
+
+    <p class="modal-label">Marking model</p>
+    <select id="provider-select">
+      <option value="claude">Claude (Anthropic)</option>
+      <option value="gemini">Gemini (Google)</option>
+    </select>
+
+    <p class="modal-label" style="margin-top:16px;">API key <span id="provider-key-hint"></span></p>
+    <p class="modal-hint">Marking is done by calling the model's API directly from your browser. Your key is stored only in this browser's local storage and is sent only to the provider's API — never anywhere else.</p>
+    <input type="password" id="apikey-input" placeholder="sk-ant-...">
+    <div class="error-msg" id="apikey-error"></div>
+
+    <div class="modal-divider"></div>
+
+    <p class="modal-label">History sync</p>
+    <div id="cloud-not-configured" style="display:none;">
+      <p class="modal-hint">Cloud sync isn't set up yet, so your history only lives on this device. See <code>firebase-config.js</code> in the app folder for a 5-minute setup guide — once configured, sign in here to sync across devices.</p>
+    </div>
+    <div id="cloud-signed-out" style="display:none;">
+      <p class="modal-hint">Sign in to sync your question history across every device.</p>
+      <button class="btn btn-secondary" id="google-signin-btn">Sign in with Google</button>
+    </div>
+    <div id="cloud-signed-in" style="display:none;">
+      <p class="modal-hint">Signed in as <strong id="signed-in-email"></strong> — history is syncing.</p>
+      <button class="btn btn-secondary" id="google-signout-btn">Sign out</button>
+    </div>
+
+    <div class="modal-divider"></div>
+    <p class="modal-label">Manual backup</p>
+    <p class="modal-hint">Works with or without cloud sync — download your history from one device, import it on another.</p>
+    <div class="btn-row" style="margin-top:8px;">
+      <button class="btn btn-secondary" id="export-history-btn">⬇ Export history</button>
+      <button class="btn btn-secondary" id="import-history-btn">⬆ Import history</button>
+      <input type="file" id="import-history-file" accept="application/json" style="display:none;">
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="apikey-cancel-btn">Close</button>
+      <button class="btn btn-primary" id="apikey-save-btn">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase (only actually connects if firebase-config.js sets a real config) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script src="data/questions.js"></script>
+<script src="firebase-config.js"></script>
+<script src="storage.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
